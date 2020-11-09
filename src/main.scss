@@ -1,4 +1,11 @@
+@use "modules/sizes.em" as sizes-em;
 $red:#DF1F00;
+
+:root {
+  @include sizes-em.define-root-variables;
+}
+
+@include sizes-em.main;
 
 html {
   color: $red;

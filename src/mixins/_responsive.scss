@@ -1,0 +1,74 @@
+@use "../globals";
+
+@mixin media($from:null, $to:null) {
+  @if $from and $to {
+    @media screen and (min-width: $from) and (max-width: $to - 1px) {
+      @content;
+    }
+  }
+  @else if $from {
+    @media screen and (min-width: $from) {
+      @content;
+    }
+  }
+  @else if $to {
+    @media screen and (max-width: $to - 1px) {
+      @content;
+    }
+  }
+}
+
+@mixin responsive($baseName, $suffix:false, $base:true) {
+  @if $base {
+    .#{$baseName} {
+      @content;
+    }
+  }
+
+  @each $name, $breakpoint in globals.$responsiveSizes {
+    @include media($from:$breakpoint) {
+      @if $suffix {
+        .#{$baseName}-#{$name} {
+          @content;
+        }
+      }
+      @else {
+        .#{$name}-#{$baseName} {
+          @content;
+        }
+      }
+    }
+  }
+}
+
+@mixin responsive-inner($baseName, $base:true) {
+  @if $base {
+    .#{$baseName} {
+      @content;
+    }
+  }
+
+  @include media($to:globals.$xs-sm) {
+    .xs-#{$baseName} {
+      @content;
+    }
+  }
+
+  @include media($from:globals.$xs-sm, $to:globals.$sm-md) {
+    .sm-#{$baseName} {
+      @content;
+    }
+  }
+
+  @include media($from:globals.$sm-md, $to:globals.$md-lg) {
+    .md-#{$baseName} {
+      @content;
+    }
+  }
+
+  @include media($from:globals.$md-lg) {
+    .lg-#{$baseName} {
+      @content;
+    }
+  }
+}

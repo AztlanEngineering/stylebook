@@ -1,0 +1,8 @@
+$xs-sm:600px !default;
+$sm-md:900px !default;
+$md-lg:1369px !default;
+$responsiveSizes:(
+  "xs":$xs-sm,
+  "sm":$sm-md,
+  "md":$md-lg,
+) !default;

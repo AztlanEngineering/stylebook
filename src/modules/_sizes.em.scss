@@ -1,0 +1,60 @@
+@use "../functions";
+@use "../mixins";
+@use "../globals";
+
+$base-size:18px !default;
+$base-size-small:16px !default;
+$size-multiplier:1.2 !default;
+
+$size-multipliers-map:(
+  "-3":functions.power($size-multiplier, -3),
+  "-2":functions.power($size-multiplier, -2),
+  "-1":functions.power($size-multiplier, -1),
+  "0":1,
+  "1":functions.power($size-multiplier, 1),
+  "2":functions.power($size-multiplier, 2),
+  "3":functions.power($size-multiplier, 3),
+  "4":functions.power($size-multiplier, 4),
+  "5":functions.power($size-multiplier, 5),
+  "6":functions.power($size-multiplier, 6),
+) !default;
+
+$class-prefix:"s" !default;
+
+
+@mixin _setter-text-sizes() {
+  @each $size, $multiple in $size-multipliers-map {
+    .#{$class-prefix}#{$size} {
+      font-size: $multiple * 1em;
+    }
+  }
+}
+
+@mixin _setter-text-sizes-media(
+  $from:false,
+  $to:globals.$sm-md,
+  $responsive-prefix:"sm"
+) {
+  @include mixins.media($from:$from, $to:$to) {
+    @each $size, $multiple in $size-multipliers-map {
+      .#{$responsive-prefix}-#{$class-prefix}#{$size} {
+        font-size: $multiple * 1em;
+      }
+    }
+  }
+}
+
+
+@mixin define-root-variables() {
+  --emsize: #{$base-size};
+  --emsize-sm: #{$base-size-small};
+
+  @each $size, $multiple in $size-multipliers-map {
+    --s#{$size}: #{$multiple};
+  }
+}
+
+@mixin main() {
+  @include _setter-text-sizes();
+  @include _setter-text-sizes-media();
+}
