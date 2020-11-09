@@ -1,0 +1,14 @@
+
+/*
+
+Image
+
+.fit : object-fit (needs height and width)
+
+*/
+
+@mixin fit {
+  img.fit {
+    object-fit: cover;
+  }
+}

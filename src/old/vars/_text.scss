@@ -1,0 +1,71 @@
+$emsize:18px !default;
+$h1:calc(var(--s6) * 1em) !default;
+$h2:calc(var(--s4) * 1em) !default;
+$h3:calc(var(--s3) * 1em) !default;
+$h4:calc(var(--s2) * 1em) !default;
+$h5:calc(var(--s1) * 1em) !default;
+$textSizeParagraph:calc(var(--s1) * 1em) !default;
+$smallClassName:"small" !default;
+$heading-multiplier:var(--heading-mul, 1) !default;
+
+/* --- Text Line, Margin --- */
+$textLineHeightDefault:1.35 !default;
+$textLineHeightHeaders:1.22 !default;
+$textLineHeightParagraph:$textLineHeightDefault !default;
+$textLineHeightParagraphContent:2 !default;
+$textMarginParagraph:0 0 1em !default;
+$textMarginHeaders:0 0 0.6em !default;
+$textMarginHeadersSpacing:1.2em !default;
+
+/* --- Text Display --- */
+$textOrphansDefault:2 !default;
+$textWidowsDefault:3 !default;
+$textLetterSpacingDefault:initial !default;
+$textLetterSpacingHigh:0.1em !default;
+$textOrphansParagraph:$textOrphansDefault !default;
+$textWidowsParagraph:$textWidowsDefault !default;
+$textOrphansHeaders:$textOrphansDefault !default;
+$textWidowsHeaders:$textWidowsDefault !default;
+$textTransformHeaders:none !default;
+$textStrokeWidth:2px !default;
+
+/* --- Link --- */
+$linkUnderline:none !default;
+$linkHoverUnderline:none !default;
+
+/* --- Lists --- */
+$ulListStyle:none !default;
+$olListStyle:33333 !default;
+$compact-name:"compact" !default;
+
+/* --- OpenType --- */
+$textOpenTypeOnum:1 !default;
+$textOpenTypeKern:1 !default;
+$textOpenTypeLiga:1 !default;
+$textOpenTypeDlig:1 !default;
+$textOpenTypeHlig:1 !default;
+$textOpenTypeClig:1 !default;
+
+/* --- Widows --- */
+$paragraphWidows:2 !default;
+$paragraphOrphans:3 !default;
+
+/* --- Blockquote --- */
+$blockquoteMarginBottom:1.6em !default;
+$blockquoteFontSize:2rem !default;
+$blockquoteBeforeChar:"“" !default;
+$blockquoteBeforeSize:10em !default;
+$blockquoteBeforeColor:var(--light-z, var(--light-accent1)) !default;
+$blockquoteBeforeOpacity:0.45 !default;
+$blockquoteBeforeTop:-5rem !default;
+$blockquoteBeforeLeft:-2.5rem !default;
+$blockquoteLeftPadding:0.5em !default;
+$blockquoteFontStyle:italic !default;
+$blockquoteAuthorBeforeChar:"—" !default;
+$blockquoteAuthorMarginRight:4em !default;
+$blockquoteAuthorBeforeMarginRight:1em !default;
+$blockquoteAuthorFontSize:1.2em !default;
+
+/* --- Extras --- */
+$pointer-class:"pointer" !default;
+

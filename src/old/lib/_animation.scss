@@ -1,0 +1,7 @@
+@use "../defs/animation" as *;
+
+//
+@include keyframes-draw-stroke;
+@include keyframes-show;
+@include transition-main;
+@include transition-others;

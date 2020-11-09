@@ -1,0 +1,111 @@
+
+@mixin collapsible-border($color, $width:1px) {
+  box-shadow:$width 0 0 0 $color,
+    0 $width 0 0 $color,
+    $width $width 0 0 $color,
+    $width 0 0 0 $color in        0 $width 0 0 $color inset;
+}
+
+@mixin position-display {
+  .row {
+    width: 100%;
+  }
+
+  /* --- Position --- 
+  .xa {
+    position: absolute;
+  }
+
+  .xf {
+    position: fixed;
+  }
+
+  .xv {
+    position: relative;
+  }
+
+  .xt {
+    top: 0;
+  }
+
+  .xb {
+    bottom: 0;
+  }
+
+  .xl {
+    left: 0;
+  }
+
+  .xr {
+    right: 0;
+  }
+
+  .xst {
+    top: 100%;
+  }
+
+  .xsb {
+    bottom: 100%;
+  }
+
+  .xsl {
+    left: 100%;
+  }
+
+  .xsr {
+    right: 100%;
+  }
+   * */
+
+
+  /* --- display  --- */
+  .yb {
+    display: block;
+  }
+
+  .yi {
+    display: inline;
+  }
+
+  .yit.yit.yit.yit.yit {
+    display: inline-table;
+  }
+
+  .yib.yib.yib.yib.yib {
+    display: inline-block;
+  }
+
+  .yf {
+    display: flex;
+  }
+
+  .yif {
+    display: inline-flex;
+  }
+}
+
+@mixin grid-flex {
+  /* --- Grid and Flex --- */
+  .hstretch {
+    > * {
+      flex-grow: 4;
+
+      > button,
+      > div {
+        //Hackish
+        width: 100%;
+      }
+    }
+  }
+
+  .vstretch {
+    > * {
+      flex-grow: 4;
+
+      > button,
+      > div {
+        height: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,233 @@
+@use "../defs/blocks";
+
+@use "../mixins" as mxn;
+@import "../vars/grid";
+@import "../vars/responsive";
+
+//Basic style (Button, Label, Card)
+.basic.basic {
+
+  //@include blocks.collapsible-border(var(--x, --primary), 1px);
+  border: 2px solid var(--x);
+  box-shadow: unset;
+  background: transparent;
+  color: var(--x, var(--black));
+}
+
+.hbasic.hbasic.hbasic {
+  &:hover {
+    //@include blocks.collapsible-border(var(--x, --primary), 1px);
+    border: 2px solid var(--dark-x, var(--black));
+    background: transparent;
+    color: var(--dark-x, var(--black));
+  }
+
+  &:focus,
+  &:active {
+    //@include blocks.collapsible-border(var(--x, --primary), 1px);
+    border: 2px solid var(--x, var(--black));
+    background: var(--x, var(--black));
+    color: var(--on-x, var(--black));
+  }
+}
+
+//Simple style (Button, Label, Card)
+
+.simple.simple,
+.simple.simple:disabled {
+
+  //@include blocks.collapsible-border(var(--x, --primary), 1px);
+  box-shadow: unset;
+  background: transparent;
+  color: var(--x, var(--black));
+}
+
+.hsimple.hsimple.hsimple {
+
+  //@include blocks.collapsible-border(var(--x, --primary), 1px);
+  &:hover {
+    background: rgba(255, 255, 255, 0);
+    color: var(--dark-x, var(--black));
+  }
+
+  &:focus,
+  &:active {
+    background: rgba(255, 255, 255, 0);
+    color: var(--light-x, var(--black));
+  }
+}
+
+.dash.dash {
+  background: transparent;
+  color: var(--dark-subtitle);
+  //font-weight: normal;
+
+  &::before {
+    display: inline-block;
+    margin-right: 0.6em;
+    background: var(--x, var(--primary));
+    width: 1.6em;
+    height: 0.1em;
+    overflow: hidden;
+    vertical-align: middle;
+    content: "\00a0";
+  }
+}
+
+.hdash.hdash {
+  &:hover {
+    &::before {
+      background: var(--dark-x);
+    }
+  }
+
+  &:focus,
+  &:active {
+    &::before {
+      background: var(--light--x);
+    }
+  }
+}
+
+
+// 3D style for buttons
+
+.in3d.in3d {
+  border-bottom: 5px solid var(--dark-x);
+  border-radius: 0.2rem;
+}
+
+.hin3d.hin3d.hin3d {
+  &:hover {
+    border-bottom: 5px solid var(--x);
+  }
+
+  &:focus,
+  &:active {
+    border-bottom: 0;
+  }
+}
+
+// Circle
+
+.circle {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+
+// Text Styles
+
+.shadow {
+    box-shadow :var(--shadow);
+
+  &:hover,
+  &:focus {
+    box-shadow :var(--shadow-hover, var(--shadow));
+  }
+}
+
+
+
+.pointer {
+  cursor: pointer;
+}
+
+.cool-link {
+  display: inline-block;
+
+  &::after {
+    display: block;
+    background: var(--link);
+    width: 0;
+    height: 2px;
+    content: "";
+    transition: all 0.3s;
+  }
+
+  &:hover::after {
+    background: var(--dark-link);
+    width: 100%;
+    //transition: width .3s;
+  }
+}
+
+.book {
+  @include mxn.media($from:$sm-md) {
+    font-size:calc(var(--s1, 1) * 1em);
+    
+  }   
+
+  ul {
+    padding-left: unset;
+
+    >li {
+      list-style:square;
+    }
+
+    > li,
+    ul,
+    ol {
+      margin-left: 2em;
+    }
+  }
+
+  p, li {
+    text-align:justify;
+    line-height:1.7em;
+  }
+
+  img.fit {
+    object-fit:contain;
+
+  }
+
+  //Big margin to separate content block
+  p + div,
+  div.row + div,
+  //p + img,
+  div.row + img,
+  img + div 
+  {
+    margin-top:6em;
+
+  }
+
+  //Small margins to ventilate inside a  block
+  img + p,
+  p + img {
+    margin-top:3em;
+  }
+  
+}
+
+//List inline
+ul.inline,
+ol.inline {
+  display: inline-flex;
+
+  li {
+    margin: 0;
+  }
+
+  li + li {
+    &::before {
+      margin-right: 0.5em;
+      margin-left: 0.5em;
+      color: var(--z, var(--metadata));
+      content: var(--separator, "|");
+    }
+  }
+}
+
+
+img.cover {
+  object-fit:cover;
+}
+img.contain {
+  object-fit:contain;
+}
+
+.f-mono {
+  font-family:monospace;
+}

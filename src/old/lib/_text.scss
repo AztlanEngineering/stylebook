@@ -1,0 +1,5 @@
+
+@use "../defs/text" as *;
+@include text-base;
+@include html-text;
+@include text-alignment;

@@ -1,0 +1,55 @@
+@use "../functions" as fn;
+
+$prefix-hover:"h" !default;
+//$prefixes-setters-text-sizes:"s", "t" !default; // Name of the registers
+$prefixes-setters-block-sizes:"u", "v", "w" !default;
+
+
+$getter-text-size-relative:"k" !default;
+$getter-text-size-absolute:"l" !default;
+
+$getter-size-margin:"m" !default;
+$getter-coordinates:"n" !default;
+$getter-size-padding:"p" !default;
+//$getter-size-block:"q" !default;
+$getter-size-border-radius:"r" !default;
+
+//
+// Variables
+//
+
+$base-size:18px;
+$base-size-small:16px;
+$size-multiplier:1.2;
+
+$size-multipliers-map:(
+  "-3":fn.power($size-multiplier, -3),
+  "-2":fn.power($size-multiplier, -2),
+  "-1":fn.power($size-multiplier, -1),
+  "0":1,
+  "1":fn.power($size-multiplier, 1),
+  "2":fn.power($size-multiplier, 2),
+  "3":fn.power($size-multiplier, 3),
+  "4":fn.power($size-multiplier, 4),
+  "5":fn.power($size-multiplier, 5),
+  "6":fn.power($size-multiplier, 6),
+);
+$sizes-list:0,0.12,0.25,0.5,1,2,3,4,5,6,8,10 !default;
+
+/* --- border-radius set-up --- */
+$border-radius-general:0.25em;
+$border-radius-var-name:"r";
+$border-radius-topLeft:var(--#{$border-radius-var-name});
+$border-radius-topRight:var(--#{$border-radius-var-name});
+$border-radius-bottomLeft:var(--#{$border-radius-var-name});
+$border-radius-bottomRight:var(--#{$border-radius-var-name});
+$border-radius-left:$border-radius-topLeft 0 0 $border-radius-bottomLeft !default;
+$border-radius-right:0 $border-radius-topRight $border-radius-bottomRight 0 !default;
+$border-radius-top:$border-radius-topLeft $border-radius-topRight 0 0 !default;
+$border-radius-bottom:0 0 $border-radius-bottomRight $border-radius-bottomLeft !default;
+$border-radius-all:$border-radius-topLeft $border-radius-topRight $border-radius-bottomRight $border-radius-bottomLeft !default;
+//$border-radius-all2:($border-radius-topLeft * 2)
+//($border-radius-topRight * 2)
+//($border-radius-bottomRight * 2)
+//($border-radius-bottomLeft * 2) !default;
+

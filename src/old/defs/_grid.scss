@@ -1,0 +1,322 @@
+
+@use "../mixins" as mxn;
+@import "../vars/grid";
+@import "../vars/responsive";
+
+/* ---  Fixed --- */
+
+@mixin grid-main {
+  .#{$row-class} {
+    width: 100%;
+  }
+
+  /* --- Base Grid --- */
+
+  .#{$columns-classgen-prefix} {
+    display: grid;
+    grid-template-columns: repeat($num-columns, 1fr);
+
+    > * {
+      grid-column-end: span $num-columns;
+    }
+  }
+}
+
+@mixin grid-sidebar {
+  @include mxn.responsive(#{$columns-classgen-prefix}-sidebar) {
+    display: grid;
+    //grid-template-rows: auto;
+    //grid-template-columns:
+    //grid-auto-flow: column;
+
+    &.left {
+      grid-template-columns: [sidebar-start] var(--sidebar-width, $default-sidebar-width) [sidebar-end] repeat($num-columns, 1fr);
+    }
+
+    &.right {
+      grid-template-columns: repeat($num-columns, 1fr) [sidebar-start] var(--sidebar-width, $default-sidebar-width) [sidebar-end];
+    }
+  }
+}
+
+
+
+@mixin columns($suffix:false, $from:false) {
+  @include mxn.media($from:$from) {
+    @for $i from 1 through $num-columns {
+      .#{$columns-classgen-prefix}#{$i}-#{$suffix} {
+        grid-column-end: span $i;
+      }
+    }
+  }
+}
+
+@mixin grid-responsive() {
+  /* --- Responsive  --- */
+
+  // Columns normal (not responsive)
+  @for $i from 1 through $num-columns {
+    .#{$columns-classgen-prefix}#{$i} {
+      grid-column-end: span $i;
+    }
+  }
+  //@include columns('xs' );
+  @include columns("sm", $from:$xs-sm);
+  @include columns("md", $from:$sm-md);
+  @include columns("lg", $from:$md-lg);
+}
+
+@mixin grid-gap-code($current, $name) {
+  .#{$gap-classgen-prefix}h#{$name} {
+    grid-column-gap: #{$current}rem;
+  }
+
+  .#{$gap-classgen-prefix}v#{$name} {
+    grid-row-gap: #{$current}rem;
+  }
+
+  .#{$gap-classgen-prefix}#{$name} {
+    grid-gap: #{$current}rem;
+  }
+}
+
+@mixin grid-gap {
+  @for $i from 1 through $gap-classgen-iterations {
+    $current:$i;
+
+    @include grid-gap-code($current:$current, $name:$current);
+  }
+
+  @include grid-gap-code($current:0.5, $name:"05");
+  @include grid-gap-code($current:0.2, $name:"02");
+  //@include grid-gap-code($current:.1, $name:'01');
+}
+
+@mixin grid-base-styles($padding:2em) {
+  .gt-center2 {
+    min-height: 100%;
+
+    > * {
+      display: flex;
+      top: 50%;
+
+      transform: translateY(-50%);
+    }
+  }
+
+  .l-center,
+  .gt-center {
+    display: grid;
+
+    @include mxn.media($to:$sm-md) {
+      grid-template-areas: "aside content aside2";
+      grid-template-columns: 0 100% 0;
+
+      --grid-total-columns: 3;
+    }
+
+    @include mxn.media($from:$sm-md) {
+      grid-template-areas: "aside content aside2";
+      grid-template-columns: auto var(--content-width, minmax(800px, 1000px)) auto;
+
+      --grid-total-columns: 3;
+    }
+  }
+
+  .l-grid,
+  .gt-grid {
+    display: grid;
+    grid-gap: var(--grid-gap);
+
+    @include mxn.media($to:$sm-md) {
+      grid-template-columns: 100%;
+
+      --grid-total-columns: 3;
+    }
+
+    @include mxn.media($from:$sm-md) {
+      grid-template-columns: repeat(auto-fill, minmax(var(--grid-item-width), 1fr));
+
+      --grid-total-columns: 3;
+    }
+  }
+
+  .l-resgrid,
+  .gt-resgrid {
+    display: grid;
+    grid-gap: var(--grid-gap);
+
+    &.dense {
+      grid-auto-flow: dense;
+    }
+
+    @include mxn.media($to:$xs-sm) {
+      grid-template-columns: repeat(var(--grid-columns-xs, 3), 1fr);
+
+      --grid-total-columns: var(--grid-columns-xs, 3);
+    }
+
+    @include mxn.media($from:$xs-sm, $to:$sm-md) {
+      grid-template-columns: repeat(var(--grid-columns-sm, 3), 1fr);
+
+      --grid-total-columns: var(--grid-columns-sm, var(--grid-columns-xs, 3));
+    }
+
+    @include mxn.media($from:$sm-md) {
+      grid-template-columns: repeat(var(--grid-columns-md, 3), 1fr);
+
+      --grid-total-columns: var(--grid-columns-md, 4);
+    }
+  }
+
+  .l-illustrated,
+  .gt-illustrated.right,
+  .gt-illustrated {
+    display: grid;
+    grid-auto-flow: dense;
+
+    @include mxn.media($to:$sm-md) {
+      grid-template-areas:
+        "content"
+        "illustration";
+
+      --grid-total-columns: 3;
+    }
+
+    @include mxn.media($from:$sm-md) {
+      grid-template-areas: "aside content illustration aside2";
+      grid-template-columns: 1fr var(--content-width, minmax(500px, 600px)) var(--content-width, minmax(300px, 500px)) 1fr;
+
+      &.right {
+        grid-template-areas: "aside illustration content aside2";
+        grid-template-columns: 1fr var(--content-width, minmax(300px, 500px)) var(--conten-width, minmax(500px, 600px)) 1fr;
+      }
+
+      .i-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+  }
+
+  .gt-illustration.left{
+
+  }
+
+  .l-content-sidebar {
+    display: grid;
+
+    @include mxn.media($to:$sm-md) {
+      .i-aside {
+        display: none;
+      }
+    }
+
+    @include mxn.media($from:$sm-md) {
+      grid-template-areas: "space aside content space2";
+      grid-template-columns: 1fr minmax(200px, 320px) minmax(800px, 1fr) 1fr;
+    }
+  }
+
+  .l-cheading {
+    display:grid;
+
+    @include mxn.media($to:$sm-md) {
+      grid-template-areas:
+        "header"
+        "content";
+    }
+
+    @include mxn.media($from:$sm-md) {
+      grid-template-areas:
+        "header content";
+      grid-template-rows:auto min-content;
+    }
+
+  }
+
+  .l-relaxed {
+    display: grid;
+    grid-auto-flow: dense;
+
+    @include mxn.media($to:$sm-md) {
+      grid-template-areas:
+        "header"
+        "content"
+        "illustration";
+    }
+
+    @include mxn.media($from:$sm-md) {
+      grid-template-areas:
+        "space header space2 illustration"
+        "space content space2 illustration";
+      grid-template-columns: 1fr minmax(320px, 620px) var(--spacing, 2em) minmax(400px, 3fr);
+      grid-template-rows:min-content auto;
+    }
+  }
+
+  .l-modal {
+    display:grid;
+    @include mxn.media($to:$sm-md) {
+      grid-template-areas:
+        "content"
+    }
+
+    @include mxn.media($from:$sm-md) {
+      grid-template-areas:
+        "space content space2";
+      grid-template-columns: 1fr minmax(var(--content-width), 1fr) 1fr;
+    }
+  }
+
+  .i-content,
+  .gc-column,
+  .gc-content {
+    grid-area: content;
+  }
+
+  .i-header,
+  .gc-header {
+    grid-area: header;
+  }
+
+  .i-footer,
+  .gc-footer {
+    grid-area: footer;
+  }
+
+  .i-extra,
+  .gc-extra {
+    grid-area: extra;
+  }
+
+  .i-illustration,
+  .gc-illustration {
+    grid-area: illustration;
+  }
+
+  .i-wide,
+  .gc-wide {
+    grid-column: 1 / span var(--grid-total-columns);
+  }
+
+  .i-aside {
+    grid-area: aside;
+  }
+
+  .ft-fill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: safe center;
+  }
+}
+
+.paragraph{
+
+}
+
+.paragraph-wide {
+  line-height: 1.5em;
+}

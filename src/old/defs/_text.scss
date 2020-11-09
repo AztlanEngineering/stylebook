@@ -1,0 +1,329 @@
+@use "../mixins" as mxn;
+@import "../vars/text";
+@import "../vars/fonts";
+
+@mixin text-base {
+  /*
+
+Text styles
+
+.nt : no style
+.tl : lighter
+.tb : bold
+.ti : italic
+.tn : oldstyle number
+.tu : uppercase
+.tw : lowercase
+.ts : text with stroke
+.tsm : small caps (only on otf files featuring it)
+.to : most open type features for content (ligatures))
+.tos : oldstyle numbers
+.tls : high letter spacing
+.nd : no decoration
+.ndh : no decoration (hover)
+
+Paragraph styles
+
+.uc : center
+.ul : left
+.ur : right
+.uj : justified
+.uc-xs : center for xs or less,
+.ul-md : center for md or less,
+
+HTML Styles
+
+HTML : h1, h2, h3, h4, h5, h6, small, p, a, b,
+Custom : .h1, .h2, .h3, .h4, .h5, .h6, .small, .p
+
+Other
+
+*/
+
+  .nt {
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  .tl {
+    font-weight: lighter;
+  }
+
+  .tb {
+    font-weight: bold;
+  }
+
+  .ti {
+    font-style: italic;
+  }
+
+  .tu {
+    text-transform: uppercase;
+  }
+
+  .tv {
+    text-decoration: underline;
+  }
+
+  .tw {
+    text-transform: lowercase;
+  }
+
+  .tsm {
+    font-feature-settings: "smcp" 1;
+  }
+
+  .ts {
+    color: transparent;
+    -webkit-text-stroke: $textStrokeWidth var(--x, var(--paragraph));
+    text-stroke: $textStrokeWidth var(--x, var(--paragraph));
+  }
+
+
+  .tls {
+    letter-spacing: $textLetterSpacingHigh;
+  }
+
+  .to {
+    font-feature-settings:"onum" $textOpenTypeOnum,
+      "kern" $textOpenTypeKern,
+      "liga" $textOpenTypeLiga,
+      "dlig" $textOpenTypeDlig,
+      "hlig" $textOpenTypeHlig,
+      "clig" $textOpenTypeClig;
+  }
+
+  .tos {
+    font-feature-settings: "onum" 1,;
+  }
+
+  .tn {
+    font-feature-settings: "onum" 1;
+  }
+}
+
+
+@mixin html-text {
+  /* --- --- */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    word-break:break-word;
+
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5 {
+    margin: $textMarginHeaders;
+    padding: 0;
+    line-height: $textLineHeightHeaders;
+    color: var(--heading);
+    font-family: var(--fh);
+    font-weight: $fontWeightHeaders;
+
+    p + & {
+      margin-top: $textMarginHeadersSpacing;
+    }
+  }
+
+  h1,
+  .h1 {
+    min-height: 1rem;
+    font-size: calc(#{$heading-multiplier} * #{$h1});
+  }
+
+  h2,
+  .h2,
+  h1.#{$smallClassName},
+  .h1.#{$smallClassName} {
+    font-size: calc(#{$heading-multiplier} * #{$h2});
+  }
+
+  h3,
+  .h3,
+  h2.#{$smallClassName},
+  .h2.#{$smallClassName} {
+    font-size: calc(#{$heading-multiplier} * #{$h3});
+  }
+
+  h4,
+  .h4,
+  h3.#{$smallClassName},
+  .h3.#{$smallClassName} {
+    font-size: calc(#{$heading-multiplier} * #{$h4});
+  }
+
+  h5,
+  .h5,
+  h4.#{$smallClassName},
+  .h4.#{$smallClassName} {
+    font-size: calc(#{$heading-multiplier} * #{$h5});
+  }
+
+  small,
+  .#{$smallClassName} {
+    font-size: calc(var(--s-1) * 1em);
+  }
+
+  h1:first-child,
+  h2:first-child,
+  h3:first-child,
+  h4:first-child,
+  h5:first-child {
+    margin-top: 0;
+  }
+
+  h1:last-child,
+  h2:last-child,
+  h3:last-child,
+  h4:last-child,
+  h5:last-child {
+    margin-bottom: 0;
+  }
+
+  /* --- ParagraphText --- */
+
+  p,
+  ul,
+  ol {
+    line-height: $textLineHeightParagraph;
+    color: var(--paragraph, inherit);
+    //font-size: $textSizeParagraph;
+  }
+
+  p,
+  li {
+    margin: $textMarginParagraph;
+    orphans: $paragraphOrphans;
+    widows: $paragraphWidows;
+  }
+
+  ul.#{$compact-name}, 
+  ol.#{$compact-name} {
+    margin: $textMarginParagraph;
+
+    li {
+      margin-bottom: unset;
+    }
+  }
+
+  ul {
+    padding-left: unset;
+    list-style: $ulListStyle;
+
+    ul,
+    ol {
+      margin-left: 1em;
+    }
+  }
+
+
+  p:first-child {
+    margin-top: 0;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  blockquote {
+    position: relative;
+    //$blockquoteBeforeChar:'“';
+    padding-left: $blockquoteLeftPadding;
+    font-size: $blockquoteFontSize;
+    font-style: $blockquoteFontStyle;
+
+    & + *:not(figcaption) {
+      margin-top: $blockquoteMarginBottom;
+    }
+
+    & + figcaption {
+      margin-top: 1em;
+      padding-right: $blockquoteAuthorMarginRight;
+      font-size: $blockquoteAuthorFontSize;
+
+      &::before {
+        margin-right: $blockquoteAuthorBeforeMarginRight;
+        content: $blockquoteAuthorBeforeChar;
+      }
+    }
+
+    &::before {
+      position: absolute;
+      top: $blockquoteBeforeTop;
+      left: $blockquoteBeforeLeft;
+      opacity: $blockquoteBeforeOpacity;
+      z-index: -1;
+      color: $blockquoteBeforeColor;
+      font-size: $blockquoteBeforeSize;
+      font-style: normal;
+      content: $blockquoteBeforeChar;
+    }
+  }
+
+  /* --- Links --- */
+
+  a {
+    text-decoration: $linkUnderline;
+    color: var(--link);
+  }
+
+  a:hover {
+    text-decoration: $linkHoverUnderline;
+    --helper:var(--dark-link);
+    color: var(--helper);
+  }
+
+  pre {
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+  }
+
+  .#{$pointer-class} {
+    cursor: pointer;
+  }
+}
+
+@mixin text-alignment {
+  .ul {
+    text-align:left;
+  }
+  .ur {
+    text-align:right;
+  }
+  .uc {
+    text-align:center;
+  }
+  .uj {
+    text-align:justify;
+  }
+  @include mxn.responsive(ul, $base:false) {
+    text-align: left;
+  }
+
+  @include mxn.responsive(ur, $base:false) {
+    text-align: right;
+  }
+
+  @include mxn.responsive(uc, $base:false) {
+    text-align: center;
+  }
+
+  @include mxn.responsive(uj, $base:false) {
+    text-align: justify;
+  }
+}

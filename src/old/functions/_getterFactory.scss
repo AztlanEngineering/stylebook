@@ -1,0 +1,8 @@
+
+@mixin getterFactory($prefix,$var-name,$properties) {
+  .#{$prefix}#{$var-name} {
+    @each $property in $properties {
+      #{$property}: var(--#{$var-name});
+    }
+  }
+}

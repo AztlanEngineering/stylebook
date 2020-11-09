@@ -1,0 +1,13 @@
+@use "../vars" as *;
+@use "../defs/main";
+@use "../defs/fonts";
+//@use "../defs/responsive";
+@use "../defs/sizes";
+
+:root {
+  @include sizes.define-variables;// EMsize
+  //@include responsive.define-variables;// breakpoints // TODO this feature does not work. we need to wait for css env level 1
+}
+
+@include main.html-body;
+@include main.hidden

@@ -1,0 +1,95 @@
+@import "../vars/fonts";
+
+@mixin font-smoothing($value:light) {
+  @if $value == dark {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+  font-smooth: always;
+}
+
+@mixin font-icon($name:$font-icon, $filename:$font-icon-filename, $prefix:$font-icon-prefix, $className:icon) {
+  @font-face {
+    font-family: $name;
+    font-weight: normal;
+    font-style: normal;
+    src: url("/#{$filename}.woff") format("woff");
+  }
+
+  /* --- 360 Rotate -- */
+  [data-#{$prefix}]::before {
+    margin-right: 0.35em;
+  }
+  
+  .fi-#{$prefix} {
+    --fi:#{$name};
+
+  }
+
+  [data-#{$prefix}]::before,
+  [data-#{$prefix}-left]::before,
+  [data-#{$prefix}-right]::after,
+  .#{$className},
+  i.#{$prefix} {
+    vertical-align: middle;
+    text-transform: none !important;
+    line-height: 1;
+    font-family: $name !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: attr(data-#{$prefix});
+    font-variant: normal !important;
+    speak: none;
+  }
+}
+
+@mixin font-wireframe($name:$fontWireframe) {
+  @include import-font($name, $fontWireframe, normal, normal);
+
+  .fw {
+    line-height: 1.1em !important;
+    font-family: $name !important;
+  }
+}
+
+@mixin font-defaults {
+  .fh {
+    font-family: var(--fh);
+  }
+
+  .fp {
+    font-family: var(--fp);
+  }
+
+  .fi {
+    font-family:var(--fi, Helvetica);
+    font-style:unset;
+  }
+}
+
+@mixin define-variables($headings:$fontHeaders, $paragraph:$fontDefault, $icons:$font-icon) {
+  --fh: #{$headings};
+  --fp: #{$paragraph};
+  --fi: #{$font-icon};
+  //--fa: //a like alt
+  //--fi
+}
+
+@mixin import-font($font-family, $woff, $weight:normal, $style:normal) {
+  @font-face {
+    font-family: $font-family;
+    font-weight: $weight;
+    font-style: $style;
+
+    @include font-smoothing(dark);
+    font-display: fallback;
+    src:url("/#{$woff}.woff2") format("woff2"),
+      url("/#{$woff}.woff") format("woff");
+  }
+}

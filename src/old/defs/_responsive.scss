@@ -1,0 +1,7 @@
+@import "../vars/responsive";
+
+@mixin define-variables {
+  @each $name, $value in $responsiveSizes {
+    --#{$name}: #{$value};
+  }
+}

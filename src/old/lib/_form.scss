@@ -1,0 +1,3 @@
+@use "../defs/form" as *;
+@include define-form-style-vars($simple, "mars");
+@include form-styles();

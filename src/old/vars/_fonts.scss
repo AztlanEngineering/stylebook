@@ -1,0 +1,24 @@
+
+/* --- Fonts --- */
+$fontHeadersName:"headings" !default;
+$fontParagraphName:"paragraph" !default;
+
+$fontHeaders:$fontHeadersName, helvetica neue, "Helvetica", "Verdana", "Arial", sans-serif !default;
+$fontDefault:$fontParagraphName, "HK Grotesk Pro", "Garamond", "Baskerville", "Times", "Times New Roman", serif !default;
+
+$fontWireframe:"BLOKK" !default;
+
+$fontWeightHeaders:bold !default;
+
+//$fontHLight:'PxLight'!default;
+$fontHRegular:"headings" !default;
+$fontHBold:"headings.bold" !default;
+
+$fontPRegular:"paragraph" !default;
+$fontPBold:"paragraph.bold" !default;
+
+
+$font-icon:'icons' !default;
+$font-icon-name:"icons" !default;
+$font-icon-filename:"icons" !default;
+$font-icon-prefix:"icons" !default;
