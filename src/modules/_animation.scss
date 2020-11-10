@@ -1,0 +1,76 @@
+/**
+ * ===== MODULE ANIMATION =====
+ *
+ * Classes generated
+ * -----------------
+ *
+ * sm-h md-h lg-h h
+ * pointer
+ *
+ * Default Exports
+ * --------------
+ *
+ * - main
+ *
+ */
+
+
+$transition-time:.25s !default;
+$transition-class:"t" !default;
+
+
+@mixin transition-main {
+  .#{$transition-class} {
+    transition: all $transition-time;
+  }
+}
+@mixin transition-others {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  p,
+  li,
+  a,
+  figure blockquote,
+  figure figcaption {
+    @extend .t;
+  }
+}
+
+// tdo as target, odo as origin
+
+@mixin keyframes-draw-stroke {
+  @keyframes draw-stroke {
+    0% {
+      stroke-dashoffset: var(--svg-odo, 1000);
+    }
+
+    100% {
+      stroke-dashoffset: var(--svg-tdo, 0);
+    }
+  }
+}
+@mixin keyframes-show {
+  @keyframes show {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+}
+@mixin main {
+  @include keyframes-draw-stroke;
+  @include keyframes-show;
+  @include transition-main;
+  @include transition-others;
+}
