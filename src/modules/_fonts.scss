@@ -52,6 +52,8 @@ $font-icon-class-name:"i" !default;
 $font-default-family:var(--font-paragraph) !default;
 $font-default-icon-family:"icons" !default; //Font Family
 
+$font-monospace-class-name:"m" !default;
+
 @mixin _font-smoothing($value:light) {
   @if $value == dark {
     -webkit-font-smoothing: antialiased;
@@ -63,6 +65,7 @@ $font-default-icon-family:"icons" !default; //Font Family
   }
   font-smooth: always;
 }
+
 @mixin _import-font($font-family, $woff, $weight:normal, $style:normal) {
   @font-face {
     font-display: fallback;
@@ -74,6 +77,7 @@ $font-default-icon-family:"icons" !default; //Font Family
     @include _font-smoothing(dark);
   }
 }
+
 @mixin _font-default-classes {
   .#{$font-class-prefix}#{$font-heading-class-name} {
     font-family: var(--font-#{$font-heading-variable-name});
@@ -87,7 +91,12 @@ $font-default-icon-family:"icons" !default; //Font Family
     font-family: var(--font-icon);
     font-style: unset;
   }
+
+  .#{$font-class-prefix}#{$font-monospace-class-name} {
+    font-family: monospace;
+  }
 }
+
 @mixin _font-icon(
   $name:$font-iconglyphs-name,
   $filename:$font-iconglyphs-filename,
@@ -130,18 +139,21 @@ $font-default-icon-family:"icons" !default; //Font Family
     vertical-align: middle;
   }
 }
+
 @mixin external-imports {
   @include _import-font($font-paragraph-name, $font-paragraph-filename-regular, normal, normal);
   @include _import-font($font-paragraph-name, $font-paragraph-filename-bold, bold, normal);
   @include _import-font($font-heading-name, $font-heading-filename-regular, normal, normal);
   @include _import-font($font-heading-name, $font-heading-filename-bold, bold, normal);
 }
+
 @mixin define-root-variables() {
   --font-#{$font-heading-variable-name}: #{$font-heading-family};
   --font-#{$font-paragraph-variable-name}: #{$font-paragraph-family};
   --font-default: #{$font-default-family};
   --font-icon: #{$font-default-icon-family};
 }
+
 @mixin main() {
   @include _font-default-classes;
   @include _font-icon;
