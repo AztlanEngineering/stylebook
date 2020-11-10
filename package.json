@@ -13,6 +13,7 @@
     "minify:custom": "postcss custom.css -o custom.min.css && npm run filesize -- custom.min.css",
     "build:main": "npm run compile:main && npm run minify:main",
     "build:custom": "npm run compile:custom && npm run minify:custom",
+    "postinstall": "node ./scripts/postinstall.js",
     "test-stylelint": "stylelint src/main.scss",
     "version:alpha": "npm version prerelease --preid=alpha",
     "version:beta": "npm version prerelease --preid=beta"
