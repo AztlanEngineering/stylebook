@@ -53,7 +53,7 @@ html {
 
 
   html {
-    @include mixins.media($from:$sm-md) {
+    @include mixins.media($from:globals.$sm-md) {
       font-size: var(--emsize-sm);
     }
     font-size: var(--emsize);
@@ -65,7 +65,7 @@ html {
     color: var(--paragraph);
     font-family: var(--font-paragraph);
     //font-size: $fontSize;
-    line-height: $textLineHeightParagraph;
+    line-height: globals.$default-line-height;
 
     //min-width: $pageMinWidth;
     margin: 0;

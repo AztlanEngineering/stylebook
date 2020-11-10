@@ -1,11 +1,10 @@
-/* Error: There is no module with the namespace "mxn".
+/* Error: Undefined variable.
  *    ,
- * 56 | /     @include mxn.media($from:$sm-md) {
- * 57 | |       font-size: var(--emsize-sm);
- * 58 | \     }
+ * 68 |     line-height: $textLineHeightParagraph;
+ *    |                  ^^^^^^^^^^^^^^^^^^^^^^^^
  *    '
- *   src/main.scss 56:5  html-body()
- *   src/main.scss 77:1  root stylesheet */
+ *   src/main.scss 68:18  html-body()
+ *   src/main.scss 77:1   root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -15,5 +14,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: 'Error: There is no module with the namespace "mxn".\a    \2577 \a 56 \2502  \250c      @include mxn.media($from:$sm-md) {\a 57 \2502  \2502        font-size: var(--emsize-sm);\a 58 \2502  \2514      }\a    \2575 \a   src/main.scss 56:5  html-body()\a   src/main.scss 77:1  root stylesheet';
+  content: "Error: Undefined variable.\a    \2577 \a 68 \2502      line-height: $textLineHeightParagraph;\a    \2502                   ^^^^^^^^^^^^^^^^^^^^^^^^\a    \2575 \a   src/main.scss 68:18  html-body()\a   src/main.scss 77:1   root stylesheet";
 }
