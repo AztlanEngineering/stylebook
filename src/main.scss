@@ -36,6 +36,40 @@ html {
   color: $red;
 } */
 
-html {
-  font-family: var(--font-paragraph);
+@mixin html-body() {
+
+  $page-background:var(--light-background);
+  $pageOverflowX:hidden !default;
+  $hidden-class:"h" !default;
+  $text-line-height-paragraph:globals.$default-line-height;
+
+  /* --- Main  --- */
+  html,
+  body {
+    height: 100%;
+  }
+
+
+  html {
+    @include mxn.media($from:$sm-md) {
+      font-size: var(--emsize-sm);
+    }
+    font-size: var(--emsize);
+  }
+
+
+  body {
+    background: $page-background;
+    color: var(--paragraph);
+    font-family: var(--font-paragraph);
+    //font-size: $fontSize;
+    line-height: $textLineHeightParagraph;
+
+    //min-width: $pageMinWidth;
+    margin: 0;
+    overflow-x: $pageOverflowX;
+    padding: 0;
+  }
 }
+
+

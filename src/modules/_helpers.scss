@@ -1,13 +1,36 @@
-/* --- Extras --- */
+/**
+ * ===== MODULE HELPERS =====
+ *
+ * Classes generated
+ * -----------------
+ *
+ * sm-h md-h lg-h h
+ * pointer
+ *
+ * Default Exports
+ * --------------
+ *
+ * - main
+ *
+ */
+
+@use "../mixins";
 
 $pointer-class:"pointer" !default;
+$hidden-class:"h" !default;
 
 @mixin _helper-classes {
   .#{$pointer-class} {
     cursor: pointer;
   }
 }
-
+@mixin _hidden {
+  /* --- Hidden --- */
+  @include mixins.responsive-inner(#{$hidden-class}) {
+    display: none !important;
+  }
+}
 @mixin main {
   @include _helper-classes;
+  @include _hidden;
 }

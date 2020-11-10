@@ -31,6 +31,8 @@
  *
  */
 
+@use "../globals";
+
 $h1:var(--s6) !default;
 $h2:var(--s4) !default;
 $h3:var(--s3) !default;
@@ -47,7 +49,7 @@ $heading-multiplier:var(--heading-multiplier, 1) !default;
 $font-weight-headers:bold !default;
 
 /* --- Text Line, Margin --- */
-$text-line-height-default:1.35 !default;
+$text-line-height-default:globals.$default-line-height !default;
 $text-line-height-headers:1.22 !default;
 $text-line-height-paragraph:$text-line-height-default !default;
 $text-line-height-paragraph-content:2 !default;
@@ -275,7 +277,6 @@ $blockquote-author-font-size:1.2em !default;
     word-wrap: break-word;
   }
 }
-
 @mixin main {
   @include _text-base;
 }
