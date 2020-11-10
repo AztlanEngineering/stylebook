@@ -63,7 +63,6 @@ $font-default-icon-family:"icons" !default; //Font Family
   }
   font-smooth: always;
 }
-
 @mixin _import-font($font-family, $woff, $weight:normal, $style:normal) {
   @font-face {
     font-display: fallback;
@@ -72,11 +71,9 @@ $font-default-icon-family:"icons" !default; //Font Family
     font-weight: $weight;
     src:url("/#{$woff}.woff2") format("woff2"),
       url("/#{$woff}.woff") format("woff");
-
     @include _font-smoothing(dark);
   }
 }
-
 @mixin _font-default-classes {
   .#{$font-class-prefix}#{$font-heading-class-name} {
     font-family: var(--font-#{$font-heading-variable-name});
@@ -91,7 +88,6 @@ $font-default-icon-family:"icons" !default; //Font Family
     font-style: unset;
   }
 }
-
 @mixin _font-icon(
   $name:$font-iconglyphs-name,
   $filename:$font-iconglyphs-filename,
@@ -134,21 +130,18 @@ $font-default-icon-family:"icons" !default; //Font Family
     vertical-align: middle;
   }
 }
-
 @mixin external-imports {
   @include _import-font($font-paragraph-name, $font-paragraph-filename-regular, normal, normal);
   @include _import-font($font-paragraph-name, $font-paragraph-filename-bold, bold, normal);
   @include _import-font($font-heading-name, $font-heading-filename-regular, normal, normal);
   @include _import-font($font-heading-name, $font-heading-filename-bold, bold, normal);
 }
-
 @mixin define-root-variables() {
   --font-#{$font-heading-variable-name}: #{$font-heading-family};
   --font-#{$font-paragraph-variable-name}: #{$font-paragraph-family};
   --font-default: #{$font-default-family};
   --font-icon: #{$font-default-icon-family};
 }
-
 @mixin main() {
   @include _font-default-classes;
   @include _font-icon;
