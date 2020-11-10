@@ -8,12 +8,9 @@
 @use "modules/sizes.margin-padding" as sizes-margin-padding;
 @use "modules/sizes.border-radius" as sizes-border-radius;
 @use "modules/text";
-//
-//
-//
-$red:#DF1F00;
 
 @include fonts.external-imports;
+@include mixins.reset;
 
 :root {
   @include fonts.define-root-variables;
@@ -24,10 +21,15 @@ $red:#DF1F00;
 @include base.main;
 @include display.main;
 @include fonts.main;
-@include helpers.main;
 @include sizes-em.main;
 @include sizes-margin-padding.main;
 @include text.main;
+@include helpers.main;
+
+//
+//
+//
+$red:#DF1F00;
 
 html {
   color: $red;
