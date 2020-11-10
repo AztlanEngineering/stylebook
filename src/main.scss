@@ -1,5 +1,6 @@
 @use "globals";
 @use "mixins";
+@use "modules/animation";
 @use "modules/base";
 @use "modules/border-radius";
 @use "modules/display";
@@ -25,6 +26,7 @@
 @include margin-padding.main;
 @include text.main;
 @include helpers.main; //Helpers and custom styles come last
+@include animation.main;
 
 //
 //
@@ -36,7 +38,7 @@ html {
   color: $red;
 } */
 
-@mixin html-body() {
+@mixin html-body {
 
   $page-background:var(--light-background);
   $pageOverflowX:hidden !default;
@@ -71,5 +73,7 @@ html {
     padding: 0;
   }
 }
+
+@include html-body;
 
 
