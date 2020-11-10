@@ -1,4 +1,6 @@
 /**
+ * ===== MODULE SIZES.MARGIN-PADDING =====
+ *
  * Classes generated
  * -----------------
  *
@@ -103,13 +105,25 @@ $sizes-list:0,.12,.25,.5,1,2,3,4,5,6,8,10 !default;
   }
 }
 
+@mixin _removers() {
+  .nm {
+    margin: 0;
+  }
+
+  .np {
+    padding: 0;
+  }
+}
+
 @mixin main () {
-  @include _setters_normal_sizes();
-  @include _setters_normal_sizes_media();
+  @include _setters_normal_sizes;
+  @include _setters_normal_sizes_media;
 
   @each $variable-name in $prefixes-setters-block-sizes {
     @include _factory_getters_rectangle($prefix-getter-margin, $variable-name, "margin");
     @include _factory_getters_rectangle($prefix-getter-padding, $variable-name, "padding");
   }
+
+  @include _removers;
 }
 

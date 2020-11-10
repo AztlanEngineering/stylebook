@@ -1,0 +1,13 @@
+/* --- Extras --- */
+
+$pointer-class:"pointer" !default;
+
+@mixin _helper-classes {
+  .#{$pointer-class} {
+    cursor: pointer;
+  }
+}
+
+@mixin main {
+  @include _helper-classes;
+}

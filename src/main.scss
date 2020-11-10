@@ -1,7 +1,13 @@
+@use "globals";
+@use "mixins";
+@use "modules/base";
+@use "modules/display";
 @use "modules/fonts";
+@use "modules/helpers";
 @use "modules/sizes.em" as sizes-em;
 @use "modules/sizes.margin-padding" as sizes-margin-padding;
 @use "modules/sizes.border-radius" as sizes-border-radius;
+@use "modules/text";
 //
 //
 //
@@ -15,9 +21,13 @@ $red:#DF1F00;
   @include sizes-border-radius.define-root-variables;
 }
 
+@include base.main;
+@include display.main;
 @include fonts.main;
+@include helpers.main;
 @include sizes-em.main;
 @include sizes-margin-padding.main;
+@include text.main;
 
 html {
   color: $red;

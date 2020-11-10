@@ -1,0 +1,281 @@
+/**
+ * ===== MODULE BASE =====
+ *
+ * Colors consumed
+ * --------------
+ *
+ * --heading
+ * --paragraph
+ * --light-link, --link
+ *
+ * Tags styled
+ * -----------
+ *
+ * h1 ... h6
+ * a
+ * pre
+ * ul, ol
+ * blockquote
+ *
+ * Classes generated
+ * -----------------
+ *
+ * .h1 ... .h6
+ * .h1.small ... .h6.small
+ *
+ *
+ * Default Exports
+ * --------------
+ *
+ * - main
+ *
+ */
+
+$h1:var(--s6) !default;
+$h2:var(--s4) !default;
+$h3:var(--s3) !default;
+$h4:var(--s2) !default;
+$h5:var(--s1) !default;
+
+$text-size-paragraph:var(--s1) !default;
+
+$small-class-name:"small" !default;
+
+$heading-multiplier:var(--heading-multiplier, 1) !default;
+
+
+$font-weight-headers:bold !default;
+
+/* --- Text Line, Margin --- */
+$text-line-height-default:1.35 !default;
+$text-line-height-headers:1.22 !default;
+$text-line-height-paragraph:$text-line-height-default !default;
+$text-line-height-paragraph-content:2 !default;
+$text-margin-paragraph:0 0 1em !default;
+$text-margin-headings:0 0 .6em !default;
+$text-margin-headings-spacing:1.2em !default;
+
+/* --- Text Display --- */
+$text-orphans-default:2 !default;
+$text-widows-default:3 !default;
+$text-letter-spacing-default:initial !default;
+$text-letter-spacing-high:.1em !default;
+$text-orphans-paragraph:$text-orphans-default !default;
+$text-widows-paragraph:$text-widows-default !default;
+$text-orphans-headers:$text-orphans-default !default;
+$text-widows-headers:$text-widows-default !default;
+$text-transform-headers:none !default;
+
+/* --- Link --- */
+$link-underline:none !default;
+$link-hover-underline:none !default;
+
+/* --- Lists --- */
+$ul-list-style:none !default;
+$ol-list-style:33333 !default;
+$compact-name:"compact" !default;
+
+
+/* --- Widows --- */
+$paragraph-widows:2 !default;
+$paragraph-orphans:3 !default;
+
+/* --- Blockquote --- */
+$blockquote-margin-bottom:1.6em !default;
+$blockquote-font-size:2rem !default;
+$blockquote-before-char:"“" !default;
+$blockquote-before-size:10em !default;
+$blockquote-before-color:var(--z, orange) !default;
+$blockquote-before-opacity:.45 !default;
+$blockquote-before-top:-5rem !default;
+$blockquote-before-left:-2.5rem !default;
+$blockquote-left-padding:.5em !default;
+$blockquote-font-style:italic !default;
+$blockquote-author-before-char:"—" !default;
+$blockquote-author-margin-right:4em !default;
+$blockquote-author-before-margin-right:1em !default;
+$blockquote-author-font-size:1.2em !default;
+
+@mixin _text-base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5 {
+    color: var(--heading);
+    font-family: var(--fh);
+    font-weight: $font-weight-headers;
+    line-height: $text-line-height-headers;
+    margin: $text-margin-headings;
+    padding: 0;
+    word-break: break-word;
+
+    p + & {
+      margin-top: $text-margin-headings-spacing;
+    }
+  }
+
+  h1,
+  .h1 {
+    font-size: calc(#{$heading-multiplier} * #{$h1});
+    min-height: 1rem;
+  }
+
+  h2,
+  .h2,
+  h1.#{$small-class-name},
+  .h1.#{$small-class-name} {
+    font-size: calc(#{$heading-multiplier} * #{$h2});
+  }
+
+  h3,
+  .h3,
+  h2.#{$small-class-name},
+  .h2.#{$small-class-name} {
+    font-size: calc(#{$heading-multiplier} * #{$h3});
+  }
+
+  h4,
+  .h4,
+  h3.#{$small-class-name},
+  .h3.#{$small-class-name} {
+    font-size: calc(#{$heading-multiplier} * #{$h4});
+  }
+
+  h5,
+  .h5,
+  h4.#{$small-class-name},
+  .h4.#{$small-class-name} {
+    font-size: calc(#{$heading-multiplier} * #{$h5});
+  }
+
+  small,
+  .#{$small-class-name} {
+    font-size: var(--s-1);
+  }
+
+  h1:first-child,
+  h2:first-child,
+  h3:first-child,
+  h4:first-child,
+  h5:first-child {
+    margin-top: 0;
+  }
+
+  h1:last-child,
+  h2:last-child,
+  h3:last-child,
+  h4:last-child,
+  h5:last-child {
+    margin-bottom: 0;
+  }
+
+  /* --- ParagraphText --- */
+
+  p,
+  ul,
+  ol {
+    color: var(--paragraph, inherit);
+    line-height: $text-line-height-paragraph;
+    //font-size: $text-size-paragraph;
+  }
+
+  p,
+  li {
+    margin: $text-margin-paragraph;
+    orphans: $paragraph-orphans;
+    widows: $paragraph-widows;
+  }
+
+  ul.#{$compact-name},
+  ol.#{$compact-name} {
+    margin: $text-margin-paragraph;
+
+    li {
+      margin-bottom: unset;
+    }
+  }
+
+  ul {
+    list-style: $ul-list-style;
+    padding-left: unset;
+
+    ul,
+    ol {
+      margin-left: 1em;
+    }
+  }
+
+
+  p:first-child {
+    margin-top: 0;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  blockquote {
+    font-size: $blockquote-font-size;
+    font-style: $blockquote-font-style;
+    //$blockquote-before-char:'“';
+    padding-left: $blockquote-left-padding;
+    position: relative;
+
+    & + *:not(figcaption) {
+      margin-top: $blockquote-margin-bottom;
+    }
+
+    & + figcaption {
+      font-size: $blockquote-author-font-size;
+      margin-top: 1em;
+      padding-right: $blockquote-author-margin-right;
+
+      &::before {
+        content: $blockquote-author-before-char;
+        margin-right: $blockquote-author-before-margin-right;
+      }
+    }
+
+    &::before {
+      color: $blockquote-before-color;
+      content: $blockquote-before-char;
+      font-size: $blockquote-before-size;
+      font-style: normal;
+      left: $blockquote-before-left;
+      opacity: $blockquote-before-opacity;
+      position: absolute;
+      top: $blockquote-before-top;
+      z-index: -1;
+    }
+  }
+
+  /* --- Links --- */
+
+  a {
+    color: var(--link);
+    text-decoration: $link-underline;
+  }
+
+  a:hover {
+    color: var(--light-link);
+    text-decoration: $link-hover-underline;
+  }
+
+  pre {
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+  }
+}
+
+@mixin main {
+  @include _text-base;
+}
