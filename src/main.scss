@@ -53,7 +53,7 @@ html {
 
 
   html {
-    @include mxn.media($from:$sm-md) {
+    @include mixins.media($from:$sm-md) {
       font-size: var(--emsize-sm);
     }
     font-size: var(--emsize);
