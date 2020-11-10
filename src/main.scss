@@ -1,30 +1,30 @@
 @use "globals";
 @use "mixins";
 @use "modules/base";
+@use "modules/border-radius";
 @use "modules/display";
+@use "modules/em-sizes";
 @use "modules/fonts";
 @use "modules/helpers";
-@use "modules/sizes.em" as sizes-em;
-@use "modules/sizes.margin-padding" as sizes-margin-padding;
-@use "modules/sizes.border-radius" as sizes-border-radius;
+@use "modules/margin-padding";
 @use "modules/text";
 
-@include fonts.external-imports;
-@include mixins.reset;
+@include fonts.external-imports; //Initially we import the dependencies
+@include mixins.reset; //Initially we reset the html
 
 :root {
   @include fonts.define-root-variables;
-  @include sizes-em.define-root-variables;
-  @include sizes-border-radius.define-root-variables;
+  @include em-sizes.define-root-variables;
+  @include border-radius.define-root-variables;
 }
 
-@include base.main;
+@include base.main; // Base comes first
 @include display.main;
 @include fonts.main;
-@include sizes-em.main;
-@include sizes-margin-padding.main;
+@include em-sizes.main;
+@include margin-padding.main;
 @include text.main;
-@include helpers.main;
+@include helpers.main; //Helpers and custom styles come last
 
 //
 //
