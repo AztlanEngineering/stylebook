@@ -1,0 +1,154 @@
+/**
+ * ===== MODULE FONTS =====
+ *
+ * Variables generated
+ * -------------------
+ *
+ * font-heading, font-paragraph
+ * font-default (maps to one of the previous)
+ * font-icon
+ *
+ * Classes generated
+ * -----------------
+ * fh
+ * fp
+ * fi
+ * fi-icons [data-icon]
+ *
+ * Default Exports
+ * --------------
+ *
+ * - external-imports
+ * - define-root-variables
+ * - main
+ *
+ */
+$font-class-prefix:"f" !default;
+
+$font-heading-name:"headings" !default;
+$font-heading-family:$font-heading-name, helvetica neue, "Helvetica", "Verdana", "Arial", sans-serif !default;
+$font-heading-weight:bold !default;
+$font-heading-filename-regular:"headings" !default;
+$font-heading-filename-bold:"headings.bold" !default;
+$font-heading-variable-name:"heading" !default;
+$font-heading-class-name:"h" !default;
+
+$font-paragraph-name:"paragraph" !default;
+$font-paragraph-family:$font-paragraph-name, "HK Grotesk Pro", "Garamond", "Baskerville", "Times", "Times New Roman", serif !default;
+$font-paragraph-weight:normal !default;
+$font-paragraph-filename-regular:"paragraph" !default;
+$font-paragraph-filename-bold:"paragraph.bold" !default;
+$font-paragraph-variable-name:"paragraph" !default;
+$font-paragraph-class-name:"p" !default;
+
+
+$font-iconglyphs-name:"icons" !default;
+$font-iconglyphs-filename:"icons" !default;
+$font-iconglyphs-data-prefix:"icon" !default; //[data-icon]
+$font-iconglyphs-class-name:"icons" !default;
+
+$font-icon-class-name:"i" !default;
+
+$font-default-family:var(--font-paragraph) !default;
+$font-default-icon-family:"icons" !default; //Font Family
+
+@mixin _font-smoothing($value:light) {
+  @if $value == dark {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+  font-smooth: always;
+}
+
+@mixin _import-font($font-family, $woff, $weight:normal, $style:normal) {
+  @font-face {
+    font-display: fallback;
+    font-family: $font-family;
+    font-style: $style;
+    font-weight: $weight;
+    src:url("/#{$woff}.woff2") format("woff2"),
+      url("/#{$woff}.woff") format("woff");
+
+    @include _font-smoothing(dark);
+  }
+}
+
+@mixin _font-default-classes {
+  .#{$font-class-prefix}#{$font-heading-class-name} {
+    font-family: var(--font-#{$font-heading-variable-name});
+  }
+
+  .#{$font-class-prefix}#{$font-paragraph-class-name} {
+    font-family: var(--font-#{$font-paragraph-variable-name});
+  }
+
+  .#{$font-class-prefix}#{$font-icon-class-name} {
+    font-family: var(--font-icon);
+    font-style: unset;
+  }
+}
+
+@mixin _font-icon(
+  $name:$font-iconglyphs-name,
+  $filename:$font-iconglyphs-filename,
+  $data-prefix:$font-iconglyphs-data-prefix,
+  $class-name:$font-iconglyphs-class-name
+) {
+  @font-face {
+    font-family: $name;
+    font-style: normal;
+    font-weight: normal;
+    src: url("/#{$filename}.woff") format("woff");
+  }
+
+  /* --- 360 Rotate -- */
+  [data-#{$data-prefix}]::before {
+    margin-right: .35em;
+  }
+
+  //// MODIFY THIS TODO
+  .#{$font-class-prefix}#{$font-icon-class-name}-#{$class-name} {
+    --font-icon: #{$name};
+  }
+
+  [data-#{$data-prefix}]::before,
+  [data-#{$data-prefix}-left]::before,
+  [data-#{$data-prefix}-right]::after,
+  .#{$class-name},
+  i.#{$class-name} {
+    content: attr(data-#{$data-prefix});
+    font-family: $name !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal !important;
+    font-variant: normal !important;
+    font-weight: normal !important;
+    line-height: 1;
+    speak: none;
+    text-transform: none !important;
+    vertical-align: middle;
+  }
+}
+
+@mixin external-imports {
+  @include _import-font($font-paragraph-name, $font-paragraph-filename-regular, normal, normal);
+  @include _import-font($font-paragraph-name, $font-paragraph-filename-bold, bold, normal);
+  @include _import-font($font-heading-name, $font-heading-filename-regular, normal, normal);
+  @include _import-font($font-heading-name, $font-heading-filename-bold, bold, normal);
+}
+
+@mixin define-root-variables() {
+  --font-#{$font-heading-variable-name}: #{$font-heading-family};
+  --font-#{$font-paragraph-variable-name}: #{$font-paragraph-family};
+  --font-default: #{$font-default-family};
+  --font-icon: #{$font-default-icon-family};
+}
+
+@mixin main() {
+  @include _font-default-classes;
+  @include _font-icon;
+}

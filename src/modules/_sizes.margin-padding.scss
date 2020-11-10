@@ -1,6 +1,115 @@
-$setters-prefixes-block-sizes:"u", "v", "w" !default;
+/**
+ * Classes generated
+ * -----------------
+ *
+ * Setters : u0, u12, u25, u50, u1, u2 ... u10
+ *           v0, v12, v25, v50, v1, v2 ... v10
+ *           sm-u0, sm-u12, ... sm-u10
+ *           sm-v0, sm-v12, ... sm-v10
+ *
+ * Getters : mt-u, mb-u, mr-u, ml-u, mv-u, mh-u
+ *           mt-v, mb-v, mr-v, ml-v, mv-v, mh-v
+ *           pt-v, pb-v, pr-v, pl-v, pv-v, ph-v
+ *           pt-v, pb-v, pr-v, pl-v, pv-v, ph-v
+ *
+ * Default Exports
+ * --------------
+ *
+ * - main
+ *
+ *
+ */
 
-$getter-prefix-margin:"m" !default;
-$getter-prefix-padding:"p" !default;
+@use "../mixins";
+@use "../globals";
+
+$prefixes-setters-block-sizes:"u", "v" !default;
+//$prefixes-setters-block-sizes:"u", "v", "w" !default;
+
+$prefix-getter-margin:"m" !default;
+$prefix-getter-padding:"p" !default;
+$prefix-getter-horizontal:"h" !default;
+$prefix-getter-vertical:"v" !default;
+$margin-padding-unit:"rem" !default;
 
 $sizes-list:0,.12,.25,.5,1,2,3,4,5,6,8,10 !default;
+
+@mixin _setters_normal_sizes() {
+  @each $size, $multiple in $sizes-list {
+    @each $prefix in $prefixes-setters-block-sizes {
+      @if $size < 1 {
+        .#{$prefix}#{$size * 100} {
+          --#{$prefix}: #{$size}#{$margin-padding-unit};
+        }
+      } @else {
+        .#{$prefix}#{$size} {
+          --#{$prefix}: #{$size}#{$margin-padding-unit};
+        }
+      }
+    }
+  }
+}
+
+@mixin _setters_normal_sizes_media(
+  $from:false,
+  $to:globals.$sm-md,
+  $responsive-prefix:"sm"
+) {
+  @include mixins.media($to:$to, $from:$from) {
+    @each $size, $multiple in $sizes-list {
+      @each $prefix in $prefixes-setters-block-sizes {
+        @if $size < 1 {
+          .#{$responsive-prefix}-#{$prefix}#{$size * 100} {
+            --#{$prefix}: #{$size}#{$margin-padding-unit};
+          }
+        } @else {
+          .#{$responsive-prefix}-#{$prefix}#{$size} {
+            --#{$prefix}: #{$size}#{$margin-padding-unit};
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin _factory_getters_rectangle($prefix,$var-name,$property) {
+  $rect:(
+    top:t,
+    bottom:b,
+    left:l,
+    right:r,
+  );
+  $prefix-horizontal:h;
+  $prefix-vertical:v;
+
+  @each $side, $prefix-side in $rect {
+    .#{$prefix}#{$prefix-side}-#{$var-name} {
+      #{$property}-#{$side}: var(--#{$var-name});
+    }
+  }
+
+  .#{$prefix}#{$prefix-getter-horizontal}-#{$var-name} {
+    #{$property}-left: var(--#{$var-name});
+    #{$property}-right: var(--#{$var-name});
+  }
+
+  .#{$prefix}#{$prefix-getter-vertical}-#{$var-name} {
+    #{$property}-top: var(--#{$var-name});
+    #{$property}-bottom: var(--#{$var-name});
+  }
+
+  .#{$prefix}-#{$var-name} {
+    #{$property}: var(--#{$var-name});
+  }
+}
+
+@mixin main () {
+  @include _setters_normal_sizes();
+  @include _setters_normal_sizes_media();
+
+  @each $variable-name in $prefixes-setters-block-sizes {
+    @include _factory_getters_rectangle($prefix-getter-margin, $variable-name, "margin");
+    @include _factory_getters_rectangle($prefix-getter-padding, $variable-name, "padding");
+  }
+}
+

@@ -1,11 +1,23 @@
+@use "modules/fonts";
 @use "modules/sizes.em" as sizes-em;
+@use "modules/sizes.margin-padding" as sizes-margin-padding;
+@use "modules/sizes.border-radius" as sizes-border-radius;
+//
+//
+//
 $red:#DF1F00;
 
+@include fonts.external-imports;
+
 :root {
+  @include fonts.define-root-variables;
   @include sizes-em.define-root-variables;
+  @include sizes-border-radius.define-root-variables;
 }
 
+@include fonts.main;
 @include sizes-em.main;
+@include sizes-margin-padding.main;
 
 html {
   color: $red;

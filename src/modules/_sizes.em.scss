@@ -1,3 +1,27 @@
+/**
+ * ===== MODULE SIZES.EM =====
+ *
+ * Variables generated
+ * -------------------
+ *
+ * s-3, s-2, s-2 .... s6
+ * emsize, emsize-sm
+ *
+ *
+ * Classes generated
+ * -----------------
+ *
+ * .s-3, .s-2  ... .s6
+ * .sm-s-3, .sm-s-2 ... sm-s6
+ *
+ * Default Exports
+ * --------------
+ *
+ * - define-root-variables
+ * - main
+ *
+ */
+
 @use "../functions";
 @use "../mixins";
 @use "../globals";
@@ -22,7 +46,7 @@ $size-multipliers-map:(
 $class-prefix:"s" !default;
 
 
-@mixin _setter-text-sizes() {
+@mixin _text-sizes() {
   @each $size, $multiple in $size-multipliers-map {
     .#{$class-prefix}#{$size} {
       font-size: $multiple * 1em;
@@ -30,7 +54,7 @@ $class-prefix:"s" !default;
   }
 }
 
-@mixin _setter-text-sizes-media(
+@mixin _text-sizes-media(
   $from:false,
   $to:globals.$sm-md,
   $responsive-prefix:"sm"
@@ -55,6 +79,6 @@ $class-prefix:"s" !default;
 }
 
 @mixin main() {
-  @include _setter-text-sizes();
-  @include _setter-text-sizes-media();
+  @include _text-sizes();
+  @include _text-sizes-media();
 }

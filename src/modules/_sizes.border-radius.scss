@@ -1,11 +1,27 @@
+/**
+ * ===== MODULE SIZES.BORDER-RADIUS =====
+ *
+ *
+ * Variables generated
+ * -------------------
+ *
+ * r, rl, rt, rr, rb
+ *
+ *
+ * Default Exports
+ * --------------
+ *
+ * - define-root-variables
+ *
+ */
 $getter-prefix-border-radius:"r" !default;
 
-$border-radius-general:.25em;
-$border-radius-var-name:"r";
-$border-radius-top-left:var(--#{$border-radius-var-name});
-$border-radius-top-right:var(--#{$border-radius-var-name});
-$border-radius-bottom-left:var(--#{$border-radius-var-name});
-$border-radius-bottom-right:var(--#{$border-radius-var-name});
+$border-radius-general:.25em !default;
+$border-radius-var-name:"r" !default;
+$border-radius-top-left:var(--#{$border-radius-var-name}) !default;
+$border-radius-top-right:var(--#{$border-radius-var-name}) !default;
+$border-radius-bottom-left:var(--#{$border-radius-var-name}) !default;
+$border-radius-bottom-right:var(--#{$border-radius-var-name}) !default;
 $border-radius-left:$border-radius-top-left 0 0 $border-radius-bottom-left !default;
 $border-radius-right:0 $border-radius-top-right $border-radius-bottom-right 0 !default;
 $border-radius-top:$border-radius-top-left $border-radius-top-right 0 0 !default;
