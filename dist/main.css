@@ -974,6 +974,10 @@ pre {
   font-style: unset;
 }
 
+.fm {
+  font-family: monospace;
+}
+
 @font-face {
   font-family: "icons";
   font-style: normal;
@@ -1644,4 +1648,159 @@ body {
   margin: 0;
   overflow-x: hidden;
   padding: 0;
+}
+
+.basic.basic {
+  background: transparent;
+  border: 2px solid var(--x);
+  box-shadow: unset;
+  color: var(--x, var(--black));
+}
+
+.hbasic.hbasic.hbasic:hover {
+  background: transparent;
+  border: 2px solid var(--dark-x, var(--black));
+  color: var(--dark-x, var(--black));
+}
+.hbasic.hbasic.hbasic:focus, .hbasic.hbasic.hbasic:active {
+  background: var(--x, var(--black));
+  border: 2px solid var(--x, var(--black));
+  color: var(--on-x, var(--black));
+}
+
+.simple.simple,
+.simple.simple:disabled {
+  background: transparent;
+  box-shadow: unset;
+  color: var(--x, var(--black));
+}
+
+.hsimple.hsimple.hsimple:hover {
+  background: rgba(255, 255, 255, 0);
+  color: var(--dark-x, var(--black));
+}
+.hsimple.hsimple.hsimple:focus, .hsimple.hsimple.hsimple:active {
+  background: rgba(255, 255, 255, 0);
+  color: var(--light-x, var(--black));
+}
+
+.dash.dash {
+  background: transparent;
+  color: var(--dark-subtitle);
+}
+.dash.dash::before {
+  background: var(--x, var(--primary));
+  content: " ";
+  display: inline-block;
+  height: 0.1em;
+  margin-right: 0.6em;
+  overflow: hidden;
+  vertical-align: middle;
+  width: 1.6em;
+}
+
+.hdash.hdash:hover::before {
+  background: var(--dark-x);
+}
+.hdash.hdash:focus::before, .hdash.hdash:active::before {
+  background: var(--light--x);
+}
+
+.in3d.in3d {
+  border-bottom: 5px solid var(--dark-x);
+  border-radius: 0.2rem;
+}
+
+.hin3d.hin3d.hin3d:hover {
+  border-bottom: 5px solid var(--x);
+}
+.hin3d.hin3d.hin3d:focus, .hin3d.hin3d.hin3d:active {
+  border-bottom: 0;
+}
+
+.circle {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.shadow {
+  box-shadow: var(--shadow);
+}
+.shadow:hover, .shadow:focus {
+  box-shadow: var(--shadow-hover, var(--shadow));
+}
+
+.cool-link {
+  display: inline-block;
+}
+.cool-link::after {
+  background: var(--link);
+  content: "";
+  display: block;
+  height: 2px;
+  transition: all 0.3s;
+  width: 0;
+}
+.cool-link:hover::after {
+  background: var(--dark-link);
+  width: 100%;
+}
+
+@media screen and (min-width: 900px) {
+  .book {
+    font-size: calc(var(--s1, 1) * 1em);
+  }
+}
+.book ul {
+  padding-left: unset;
+}
+.book ul > li {
+  list-style: square;
+}
+.book ul > li,
+.book ul ul,
+.book ul ol {
+  margin-left: 2em;
+}
+.book p,
+.book li {
+  line-height: 1.7em;
+  text-align: justify;
+}
+.book img.fit {
+  object-fit: contain;
+}
+.book p + div,
+.book div.row + div,
+.book div.row + img,
+.book img + div {
+  margin-top: 6em;
+}
+.book img + p,
+.book p + img {
+  margin-top: 3em;
+}
+
+ul.inline,
+ol.inline {
+  display: inline-flex;
+}
+ul.inline li,
+ol.inline li {
+  margin: 0;
+}
+ul.inline li + li::before,
+ol.inline li + li::before {
+  color: var(--z, var(--metadata));
+  content: var(--separator, "|");
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+img.cover {
+  object-fit: cover;
+}
+
+img.contain {
+  object-fit: contain;
 }

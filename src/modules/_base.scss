@@ -124,7 +124,7 @@ $blockquote-author-font-size:1.2em !default;
 
   h1,
   .h1 {
-    font-size: calc(#{$heading-multiplier} * #{$h1});
+    font-size: calc(#{$heading-multiplier} * #{$h1} * 1em);
     min-height: 1rem;
   }
 
@@ -132,28 +132,28 @@ $blockquote-author-font-size:1.2em !default;
   .h2,
   h1.#{$small-class-name},
   .h1.#{$small-class-name} {
-    font-size: calc(#{$heading-multiplier} * #{$h2});
+    font-size: calc(#{$heading-multiplier} * #{$h2} * 1em);
   }
 
   h3,
   .h3,
   h2.#{$small-class-name},
   .h2.#{$small-class-name} {
-    font-size: calc(#{$heading-multiplier} * #{$h3});
+    font-size: calc(#{$heading-multiplier} * #{$h3} * 1em);
   }
 
   h4,
   .h4,
   h3.#{$small-class-name},
   .h3.#{$small-class-name} {
-    font-size: calc(#{$heading-multiplier} * #{$h4});
+    font-size: calc(#{$heading-multiplier} * #{$h4} * 1em);
   }
 
   h5,
   .h5,
   h4.#{$small-class-name},
   .h4.#{$small-class-name} {
-    font-size: calc(#{$heading-multiplier} * #{$h5});
+    font-size: calc(#{$heading-multiplier} * #{$h5} * 1em);
   }
 
   small,
