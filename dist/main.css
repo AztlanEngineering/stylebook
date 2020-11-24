@@ -783,7 +783,7 @@ p + .h5 {
 
 h1,
 .h1 {
-  font-size: calc(var(--heading-multiplier, 1) * var(--s6));
+  font-size: calc(var(--heading-multiplier, 1) * var(--s6) * 1em);
   min-height: 1rem;
 }
 
@@ -791,28 +791,28 @@ h2,
 .h2,
 h1.small,
 .h1.small {
-  font-size: calc(var(--heading-multiplier, 1) * var(--s4));
+  font-size: calc(var(--heading-multiplier, 1) * var(--s4) * 1em);
 }
 
 h3,
 .h3,
 h2.small,
 .h2.small {
-  font-size: calc(var(--heading-multiplier, 1) * var(--s3));
+  font-size: calc(var(--heading-multiplier, 1) * var(--s3) * 1em);
 }
 
 h4,
 .h4,
 h3.small,
 .h3.small {
-  font-size: calc(var(--heading-multiplier, 1) * var(--s2));
+  font-size: calc(var(--heading-multiplier, 1) * var(--s2) * 1em);
 }
 
 h5,
 .h5,
 h4.small,
 .h4.small {
-  font-size: calc(var(--heading-multiplier, 1) * var(--s1));
+  font-size: calc(var(--heading-multiplier, 1) * var(--s1) * 1em);
 }
 
 small,

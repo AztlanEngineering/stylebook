@@ -110,7 +110,7 @@ $blockquote-author-font-size:1.2em !default;
   .h4,
   .h5 {
     color: var(--heading);
-    font-family: var(--fh);
+    font-family: var(--font-heading);
     font-weight: $font-weight-headers;
     line-height: $text-line-height-headers;
     margin: $text-margin-headings;
