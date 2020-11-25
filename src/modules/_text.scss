@@ -118,19 +118,19 @@ $text-alignment-justify-class-name:"#{$text-alignment-prefix}j" !default;
     text-align: justify;
   }
 
-  @include mixins.responsive-inner($text-alignment-left-class-name, $base:false) {
+  @include mixins.responsive-from($text-alignment-left-class-name, $base:false) {
     text-align: left;
   }
 
-  @include mixins.responsive-inner($text-alignment-right-class-name, $base:false) {
+  @include mixins.responsive-from($text-alignment-right-class-name, $base:false) {
     text-align: right;
   }
 
-  @include mixins.responsive-inner($text-alignment-center-class-name, $base:false) {
+  @include mixins.responsive-from($text-alignment-center-class-name, $base:false) {
     text-align: center;
   }
 
-  @include mixins.responsive-inner($text-alignment-justify-class-name, $base:false) {
+  @include mixins.responsive-from($text-alignment-justify-class-name, $base:false) {
     text-align: justify;
   }
 }
