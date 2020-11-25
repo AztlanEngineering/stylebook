@@ -1,7 +1,7 @@
 {
   "name": "@fwrlines/stylebook",
   "author": "Adrian V.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "repository": "github:fwrlines/stylebook",
   "main": "dist/main.min.css",
