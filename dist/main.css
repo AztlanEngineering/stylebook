@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/* TODO remove dependency and remove code */
 /**
  * ===== MODULE ANIMATION =====
  *
@@ -1476,17 +1477,12 @@ i.icons {
   text-align: justify;
 }
 
-@media screen and (max-width: 599px) {
-  .xs-ul {
-    text-align: left;
-  }
-}
-@media screen and (min-width: 600px) and (max-width: 899px) {
+@media screen and (min-width: 600px) {
   .sm-ul {
     text-align: left;
   }
 }
-@media screen and (min-width: 900px) and (max-width: 1368px) {
+@media screen and (min-width: 900px) {
   .md-ul {
     text-align: left;
   }
@@ -1496,17 +1492,12 @@ i.icons {
     text-align: left;
   }
 }
-@media screen and (max-width: 599px) {
-  .xs-ur {
-    text-align: right;
-  }
-}
-@media screen and (min-width: 600px) and (max-width: 899px) {
+@media screen and (min-width: 600px) {
   .sm-ur {
     text-align: right;
   }
 }
-@media screen and (min-width: 900px) and (max-width: 1368px) {
+@media screen and (min-width: 900px) {
   .md-ur {
     text-align: right;
   }
@@ -1516,17 +1507,12 @@ i.icons {
     text-align: right;
   }
 }
-@media screen and (max-width: 599px) {
-  .xs-uc {
-    text-align: center;
-  }
-}
-@media screen and (min-width: 600px) and (max-width: 899px) {
+@media screen and (min-width: 600px) {
   .sm-uc {
     text-align: center;
   }
 }
-@media screen and (min-width: 900px) and (max-width: 1368px) {
+@media screen and (min-width: 900px) {
   .md-uc {
     text-align: center;
   }
@@ -1536,17 +1522,12 @@ i.icons {
     text-align: center;
   }
 }
-@media screen and (max-width: 599px) {
-  .xs-uj {
-    text-align: justify;
-  }
-}
-@media screen and (min-width: 600px) and (max-width: 899px) {
+@media screen and (min-width: 600px) {
   .sm-uj {
     text-align: justify;
   }
 }
-@media screen and (min-width: 900px) and (max-width: 1368px) {
+@media screen and (min-width: 900px) {
   .md-uj {
     text-align: justify;
   }
