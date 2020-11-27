@@ -288,6 +288,10 @@ html {
   img.contain {
     object-fit: contain;
   }
+
+  .hstretch > * {
+    flex-grow: 4;
+  }
 }
 
 @include html-body;
