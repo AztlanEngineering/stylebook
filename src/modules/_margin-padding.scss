@@ -53,9 +53,9 @@ $sizes-list:0,.12,.25,.5,1,2,3,4,5,6,8,10 !default;
 }
 
 @mixin _setters_normal_sizes_media(
-  $from:false,
-  $to:globals.$sm-md,
-  $responsive-prefix:"sm"
+  $to:false,
+  $from:globals.$sm-md,
+  $responsive-prefix:"md"
 ) {
   @include mixins.media($to:$to, $from:$from) {
     @each $size, $multiple in $sizes-list {
@@ -83,7 +83,6 @@ $sizes-list:0,.12,.25,.5,1,2,3,4,5,6,8,10 !default;
   );
   $prefix-horizontal:h;
   $prefix-vertical:v;
-
   @each $side, $prefix-side in $rect {
     .#{$prefix}#{$prefix-side}-#{$var-name} {
       #{$property}-#{$side}: var(--#{$var-name});
@@ -118,7 +117,6 @@ $sizes-list:0,.12,.25,.5,1,2,3,4,5,6,8,10 !default;
 @mixin main () {
   @include _setters_normal_sizes;
   @include _setters_normal_sizes_media;
-
   @each $variable-name in $prefixes-setters-block-sizes {
     @include _factory_getters_rectangle($prefix-getter-margin, $variable-name, "margin");
     @include _factory_getters_rectangle($prefix-getter-padding, $variable-name, "padding");

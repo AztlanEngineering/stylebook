@@ -1615,12 +1615,6 @@ body {
 html {
   font-size: var(--emsize);
 }
-@media screen and (min-width: 900px) {
-  html {
-    font-size: var(--emsize-sm);
-  }
-}
-
 body {
   background: var(--light-background);
   color: var(--paragraph);
@@ -1788,4 +1782,7 @@ img.contain {
 
 .hstretch > * {
   flex-grow: 4;
+}
+.hstretch > * > * {
+  width: 100%;
 }
