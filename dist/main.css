@@ -732,8 +732,8 @@ template {
   --font-paragraph: paragraph, HK Grotesk Pro, Garamond, Baskerville, Times, Times New Roman, serif;
   --font-default: var(--font-paragraph);
   --font-icon: icons;
-  --emsize: 18px;
-  --emsize-sm: 16px;
+  --emsize-md: 18px;
+  --emsize: 16px;
   --s-3: 0.5787037037;
   --s-2: 0.6944444444;
   --s-1: 0.8333333333;
@@ -1052,44 +1052,44 @@ i.icons {
   font-size: 2.985984em;
 }
 
-@media screen and (max-width: 899px) {
-  .sm-s-3 {
+@media screen and (min-width: 900px) {
+  .md-s-3 {
     font-size: 0.5787037037em;
   }
 
-  .sm-s-2 {
+  .md-s-2 {
     font-size: 0.6944444444em;
   }
 
-  .sm-s-1 {
+  .md-s-1 {
     font-size: 0.8333333333em;
   }
 
-  .sm-s0 {
+  .md-s0 {
     font-size: 1em;
   }
 
-  .sm-s1 {
+  .md-s1 {
     font-size: 1.2em;
   }
 
-  .sm-s2 {
+  .md-s2 {
     font-size: 1.44em;
   }
 
-  .sm-s3 {
+  .md-s3 {
     font-size: 1.728em;
   }
 
-  .sm-s4 {
+  .md-s4 {
     font-size: 2.0736em;
   }
 
-  .sm-s5 {
+  .md-s5 {
     font-size: 2.48832em;
   }
 
-  .sm-s6 {
+  .md-s6 {
     font-size: 2.985984em;
   }
 }
@@ -1189,100 +1189,100 @@ i.icons {
   --v: 10rem;
 }
 
-@media screen and (max-width: 899px) {
-  .sm-u0 {
+@media screen and (min-width: 900px) {
+  .md-u0 {
     --u: 0rem;
   }
 
-  .sm-v0 {
+  .md-v0 {
     --v: 0rem;
   }
 
-  .sm-u12 {
+  .md-u12 {
     --u: 0.12rem;
   }
 
-  .sm-v12 {
+  .md-v12 {
     --v: 0.12rem;
   }
 
-  .sm-u25 {
+  .md-u25 {
     --u: 0.25rem;
   }
 
-  .sm-v25 {
+  .md-v25 {
     --v: 0.25rem;
   }
 
-  .sm-u50 {
+  .md-u50 {
     --u: 0.5rem;
   }
 
-  .sm-v50 {
+  .md-v50 {
     --v: 0.5rem;
   }
 
-  .sm-u1 {
+  .md-u1 {
     --u: 1rem;
   }
 
-  .sm-v1 {
+  .md-v1 {
     --v: 1rem;
   }
 
-  .sm-u2 {
+  .md-u2 {
     --u: 2rem;
   }
 
-  .sm-v2 {
+  .md-v2 {
     --v: 2rem;
   }
 
-  .sm-u3 {
+  .md-u3 {
     --u: 3rem;
   }
 
-  .sm-v3 {
+  .md-v3 {
     --v: 3rem;
   }
 
-  .sm-u4 {
+  .md-u4 {
     --u: 4rem;
   }
 
-  .sm-v4 {
+  .md-v4 {
     --v: 4rem;
   }
 
-  .sm-u5 {
+  .md-u5 {
     --u: 5rem;
   }
 
-  .sm-v5 {
+  .md-v5 {
     --v: 5rem;
   }
 
-  .sm-u6 {
+  .md-u6 {
     --u: 6rem;
   }
 
-  .sm-v6 {
+  .md-v6 {
     --v: 6rem;
   }
 
-  .sm-u8 {
+  .md-u8 {
     --u: 8rem;
   }
 
-  .sm-v8 {
+  .md-v8 {
     --v: 8rem;
   }
 
-  .sm-u10 {
+  .md-u10 {
     --u: 10rem;
   }
 
-  .sm-v10 {
+  .md-v10 {
     --v: 10rem;
   }
 }

@@ -29,9 +29,10 @@ $border-radius-bottom:0 0 $border-radius-bottom-right $border-radius-bottom-left
 $border-radius-all:$border-radius-top-left $border-radius-top-right $border-radius-bottom-right $border-radius-bottom-left !default;
 
 @mixin define-root-variables() {
-  --rl: #{$border-radius-left};
-  --rr: #{$border-radius-right};
-  --rt: #{$border-radius-top};
-  --rb: #{$border-radius-bottom};
-  --r: #{$border-radius-general};
+  --theme-border-radius-rl: #{$border-radius-left};
+  --theme-border-radius-rr: #{$border-radius-right};
+  --theme-border-radius-top: #{$border-radius-top};
+  --theme-border-radius-bottom: #{$border-radius-bottom};
+  --theme-border-radius: #{$border-radius-general};
+  --theme-button-border-radius: #{$border-radius-general};
 }

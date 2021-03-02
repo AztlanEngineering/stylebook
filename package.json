@@ -1,5 +1,5 @@
 {
-  "name": "@fwrlines/stylebook",
+  "name": "@aztlan/stylebook",
   "author": "Adrian V.",
   "version": "1.0.6-alpha.0",
   "description": "",
@@ -25,13 +25,13 @@
     "css-mqpacker": "^7.0.0",
     "cssnano": "^4.1.10",
     "filesize": "^6.1.0",
-    "postcss-cli": "^8.2.0",
+    "postcss-cli": "^8.3.1",
     "postcss-preset-env": "^6.7.0",
     "postcss-scss": "^3.0.4",
-    "sass": "^1.29.0",
-    "stylelint": "^13.7.2",
+    "sass": "^1.32.8",
+    "stylelint": "^13.11.0",
     "stylelint-config-palantir": "^5.0.0",
-    "stylelint-scss": "^3.18.0"
+    "stylelint-scss": "^3.19.0"
   },
   "dependencies": {}
 }
