@@ -1,0 +1,264 @@
+@mixin html-body {
+
+  $page-background:var(--light-background);
+  $pageOverflowX:hidden !default;
+  $hidden-class:"h" !default;
+  $text-line-height-paragraph:globals.$default-line-height;
+
+  /* --- Main  --- */
+  html,
+  body {
+    height: 100%;
+  }
+
+
+  html {
+    @include mixins.media($from:globals.$sm-md) {
+      //font-size: var(--emsize-md);
+    }
+    font-size: var(--emsize);
+  }
+
+
+  body {
+    background: $page-background;
+    color: var(--paragraph);
+    font-family: var(--font-paragraph);
+    //font-size: $fontSize;
+    line-height: globals.$default-line-height;
+
+    //min-width: $pageMinWidth;
+    margin: 0;
+    overflow-x: $pageOverflowX;
+    padding: 0;
+  }
+}
+
+@mixin extras {
+  //Basic style (Button, Label, Card)
+  .basic.basic {
+    background: transparent;
+
+    //@include blocks.collapsible-border(var(--x, --primary), 1px);
+    border: 2px solid var(--x);
+    box-shadow: unset;
+    color: var(--x, var(--black));
+  }
+
+  .hbasic.hbasic.hbasic {
+    &:hover {
+      background: transparent;
+      //@include blocks.collapsible-border(var(--x, --primary), 1px);
+      border: 2px solid var(--dark-x, var(--black));
+      color: var(--dark-x, var(--black));
+    }
+
+    &:focus,
+    &:active {
+      background: var(--x, var(--black));
+      //@include blocks.collapsible-border(var(--x, --primary), 1px);
+      border: 2px solid var(--x, var(--black));
+      color: var(--on-x, var(--black));
+    }
+  }
+
+  //Simple style (Button, Label, Card)
+
+  .simple.simple,
+  .simple.simple:disabled {
+    background: transparent;
+
+    //@include blocks.collapsible-border(var(--x, --primary), 1px);
+    box-shadow: unset;
+    color: var(--x, var(--black));
+  }
+
+  .hsimple.hsimple.hsimple {
+
+    //@include blocks.collapsible-border(var(--x, --primary), 1px);
+    &:hover {
+      background: rgba(255, 255, 255, 0);
+      color: var(--dark-x, var(--black));
+    }
+
+    &:focus,
+    &:active {
+      background: rgba(255, 255, 255, 0);
+      color: var(--light-x, var(--black));
+    }
+  }
+
+  .dash.dash {
+    background: transparent;
+    color: var(--dark-subtitle);
+    //font-weight: normal;
+
+    &::before {
+      background: var(--x, var(--primary));
+      content: "\00a0";
+      display: inline-block;
+      height: .1em;
+      margin-right: .6em;
+      overflow: hidden;
+      vertical-align: middle;
+      width: 1.6em;
+    }
+  }
+
+  .hdash.hdash {
+    &:hover {
+      &::before {
+        background: var(--dark-x);
+      }
+    }
+
+    &:focus,
+    &:active {
+      &::before {
+        background: var(--light--x);
+      }
+    }
+  }
+
+
+  // 3D style for buttons
+
+  .in3d.in3d {
+    border-bottom: 5px solid var(--dark-x);
+    border-radius: .2rem;
+  }
+
+  .hin3d.hin3d.hin3d {
+    &:hover {
+      border-bottom: 5px solid var(--x);
+    }
+
+    &:focus,
+    &:active {
+      border-bottom: 0;
+    }
+  }
+
+  // Circle
+
+  .circle {
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+
+  // Text Styles
+
+  .shadow {
+    box-shadow: var(--shadow);
+
+    &:hover,
+    &:focus {
+      box-shadow: var(--shadow-hover, var(--shadow));
+    }
+  }
+
+  .cool-link {
+    display: inline-block;
+
+    &::after {
+      background: var(--link);
+      content: "";
+      display: block;
+      height: 2px;
+      transition: all .3s;
+      width: 0;
+    }
+
+    &:hover::after {
+      background: var(--dark-link);
+      width: 100%;
+      //transition: width .3s;
+    }
+  }
+
+  .book {
+    @include mixins.media($from:globals.$sm-md) {
+      font-size: calc(var(--s1, 1) * 1em);
+    }
+
+    ul {
+      padding-left: unset;
+
+      >li {
+        list-style: square;
+      }
+
+      > li,
+      ul,
+      ol {
+        margin-left: 2em;
+      }
+    }
+
+    p,
+    li {
+      line-height: 1.7em;
+      text-align: justify;
+    }
+
+    img.fit {
+      object-fit: contain;
+    }
+
+    //Big margin to separate content block
+    p + div,
+    div.row + div,
+    div.row + img,
+    img + div {
+      margin-top: 6em;
+    }
+
+    //Small margins to ventilate inside a  block
+    img + p,
+    p + img {
+      margin-top: 3em;
+    }
+  }
+
+  //List inline
+  ul.inline,
+  ol.inline {
+    display: inline-flex;
+
+    li {
+      margin: 0;
+    }
+
+    li + li {
+      &::before {
+        color: var(--z, var(--metadata));
+        content: var(--separator, "|");
+        margin-left: .5em;
+        margin-right: .5em;
+      }
+    }
+  }
+
+
+  img.cover {
+    object-fit: cover;
+  }
+
+  img.contain {
+    object-fit: contain;
+  }
+
+  .hstretch > * {
+    flex-grow: 4;
+
+    > * {
+      width: 100%;
+    }
+  }
+}
+
+@include html-body;
+@include extras;
+
+
