@@ -15,9 +15,11 @@
     "build:main": "npm run compile:main && npm run minify:main",
     "build:custom": "npm run compile:custom && npm run minify:custom",
     "postinstall": "node ./scripts/postinstall.js",
-    "test-stylelint": "stylelint src/main.scss",
+    "testconfig:stylelint": "stylelint src/main.scss",
     "version:alpha": "npm version prerelease --preid=alpha",
-    "version:beta": "npm version prerelease --preid=beta"
+    "version:beta": "npm version prerelease --preid=beta",
+    "test:stylelint": "stylelint src/**/*.scss --rd --rdd --risd --color --formatter verbose",
+    "fix:stylelint": "npm run test:stylelint -- --fix"
   },
   "keywords": [],
   "license": "MIT",
