@@ -1,7 +1,7 @@
 {
   "name": "@aztlan/stylebook",
-  "author": "Adrian V.",
-  "version": "1.0.6-alpha.0",
+  "author": "Aztlan Engineering",
+  "version": "0.0.1",
   "description": "",
   "repository": "github:fwrlines/stylebook",
   "main": "dist/main.min.css",

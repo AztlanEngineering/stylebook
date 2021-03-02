@@ -744,11 +744,12 @@ template {
   --s4: 2.0736;
   --s5: 2.48832;
   --s6: 2.985984;
-  --rl: var(--r) 0 0 var(--r);
-  --rr: 0 var(--r) var(--r) 0;
-  --rt: var(--r) var(--r) 0 0;
-  --rb: 0 0 var(--r) var(--r);
-  --r: 0.25em;
+  --theme-border-radius-rl: var(--r) 0 0 var(--r);
+  --theme-border-radius-rr: 0 var(--r) var(--r) 0;
+  --theme-border-radius-top: var(--r) var(--r) 0 0;
+  --theme-border-radius-bottom: 0 0 var(--r) var(--r);
+  --theme-border-radius: 0.25em;
+  --theme-button-border-radius: 0.25em;
 }
 
 h1,
