@@ -1,4 +1,8 @@
+@use "globals";
+@use "mixins";
+
 @mixin html-body {
+
 
   $page-background:var(--light-background);
   $pageOverflowX:hidden !default;
