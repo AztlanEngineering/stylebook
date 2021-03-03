@@ -17,7 +17,7 @@
 $getter-prefix-border-radius:"r" !default;
 
 $border-radius-general:.25em !default;
-$border-radius-var-name:"r" !default;
+$border-radius-var-name:"theme-border-radius" !default;
 $border-radius-top-left:var(--#{$border-radius-var-name}) !default;
 $border-radius-top-right:var(--#{$border-radius-var-name}) !default;
 $border-radius-bottom-left:var(--#{$border-radius-var-name}) !default;
