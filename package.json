@@ -3,13 +3,15 @@
   "author": "Aztlan Engineering",
   "version": "0.0.2-alpha.1",
   "description": "",
-  "repository": "github:fwrlines/stylebook",
+  "repository": "github:AztlanEngineering/stylebook",
   "main": "dist/main.min.css",
+  "keywords": [],
+  "license": "MIT",
   "scripts": {
     "prepublish": "npm run build:main",
     "filesize": "node scripts/filesize.js",
-    "compile:main": "sass src/main.scss dist/main.css -c --no-source-map && npm run filesize -- dist/main.css",
-    "compile:custom": "sass custom.scss custom.css -c --no-source-map && npm run filesize -- custom.css",
+    "compile:main": "sass src/main.scss dist/main.css -c -I node_modules/ --no-source-map && npm run filesize -- dist/main.css",
+    "compile:custom": "sass custom.scss custom.css -c -I node_modules/ --no-source-map && npm run filesize -- custom.css",
     "minify:main": "postcss dist/main.css -o dist/main.min.css && npm run filesize -- dist/main.min.css",
     "minify:custom": "postcss custom.css -o custom.min.css && npm run filesize -- custom.min.css",
     "build:main": "npm run compile:main && npm run minify:main",
@@ -19,10 +21,9 @@
     "version:alpha": "npm version prerelease --preid=alpha",
     "version:beta": "npm version prerelease --preid=beta",
     "test:stylelint": "stylelint src/**/*.scss --rd --rdd --risd --color --formatter verbose",
-    "fix:stylelint": "npm run test:stylelint -- --fix"
+    "fix:stylelint": "npm run test:stylelint -- --fix",
+    "test": "npm run test:stylelint"
   },
-  "keywords": [],
-  "license": "MIT",
   "devDependencies": {
     "css-mqpacker": "^7.0.0",
     "cssnano": "^4.1.10",
