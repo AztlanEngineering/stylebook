@@ -16,7 +16,8 @@
  * - main
  *
  */
-@mixin _display {
+
+@mixin -display {
   .yb {
     display: block;
   }
@@ -56,7 +57,7 @@
 }
 
 @mixin main {
-  @include _display;
+  @include -display;
 }
 
 

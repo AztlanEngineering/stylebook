@@ -46,7 +46,7 @@ $size-multipliers-map:(
 $class-prefix:"s" !default;
 
 
-@mixin _text-sizes() {
+@mixin -text-sizes() {
   @each $size, $multiple in $size-multipliers-map {
     .#{$class-prefix}#{$size} {
       font-size: $multiple * 1em;
@@ -54,7 +54,7 @@ $class-prefix:"s" !default;
   }
 }
 
-@mixin _text-sizes-media(
+@mixin -text-sizes-media(
   $to:false,
   $from:globals.$sm-md,
   $responsive-prefix:"md"
@@ -78,6 +78,6 @@ $class-prefix:"s" !default;
 }
 
 @mixin main() {
-  @include _text-sizes();
-  @include _text-sizes-media();
+  @include -text-sizes();
+  @include -text-sizes-media();
 }

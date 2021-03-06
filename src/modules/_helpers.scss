@@ -19,13 +19,15 @@
 $pointer-class:"pointer" !default;
 $hidden-class:"h" !default;
 
-@mixin _helper-classes {
+@mixin -helper-classes {
   .#{$pointer-class} {
     cursor: pointer;
   }
 }
-@mixin _hidden {
+@mixin -hidden {
   /* --- Hidden --- */
+  /* stylelint-disable declaration-no-important -- exceptionally,
+   we shall important here to ensure no visibility */
   @include mixins.responsive-inner(#{$hidden-class}) {
     display: none !important;
   }
@@ -40,6 +42,6 @@ $hidden-class:"h" !default;
 
 
 @mixin main {
-  @include _helper-classes;
-  @include _hidden;
+  @include -helper-classes;
+  @include -hidden;
 }

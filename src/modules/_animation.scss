@@ -18,10 +18,13 @@
 $transition-time:.25s !default;
 $transition-class:"t" !default;
 
+%base-transition {
+  transition: all $transition-time;
+}
 
 @mixin transition-main {
   .#{$transition-class} {
-    transition: all $transition-time;
+    @extend %base-transition;
   }
 }
 @mixin transition-others {
@@ -40,7 +43,7 @@ $transition-class:"t" !default;
   a,
   figure blockquote,
   figure figcaption {
-    @extend .t;
+    @extend %base-transition;
   }
 }
 

@@ -87,7 +87,7 @@ $blockquote-margin-bottom:1.6em !default;
 $blockquote-font-size:2rem !default;
 $blockquote-before-char:"“" !default;
 $blockquote-before-size:10em !default;
-$blockquote-before-color:var(--z, orange) !default;
+$blockquote-before-color:var(--y, #20fc8f) !default;
 $blockquote-before-opacity:.45 !default;
 $blockquote-before-top:-5rem !default;
 $blockquote-before-left:-2.5rem !default;
@@ -98,7 +98,7 @@ $blockquote-author-margin-right:4em !default;
 $blockquote-author-before-margin-right:1em !default;
 $blockquote-author-font-size:1.2em !default;
 
-@mixin _text-base {
+@mixin -text-base {
   h1,
   h2,
   h3,
@@ -229,11 +229,11 @@ $blockquote-author-font-size:1.2em !default;
     padding-left: $blockquote-left-padding;
     position: relative;
 
-    & + *:not(figcaption) {
+    + :not(figcaption) {
       margin-top: $blockquote-margin-bottom;
     }
 
-    & + figcaption {
+    + figcaption {
       font-size: $blockquote-author-font-size;
       margin-top: 1em;
       padding-right: $blockquote-author-margin-right;
@@ -271,12 +271,15 @@ $blockquote-author-font-size:1.2em !default;
 
   pre {
     white-space: pre-wrap;
+
+    /*
     white-space: -moz-pre-wrap;
     white-space: -pre-wrap;
     white-space: -o-pre-wrap;
+    */
     word-wrap: break-word;
   }
 }
 @mixin main {
-  @include _text-base;
+  @include -text-base;
 }

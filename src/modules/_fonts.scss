@@ -26,7 +26,13 @@
 $font-class-prefix:"f" !default;
 
 $font-heading-name:"headings" !default;
-$font-heading-family:$font-heading-name, helvetica neue, "Helvetica", "Verdana", "Arial", sans-serif !default;
+$font-heading-family:
+  $font-heading-name,
+  helvetica neue,
+  "Helvetica",
+  "Verdana",
+  "Arial",
+  sans-serif !default;
 $font-heading-weight:bold !default;
 $font-heading-filename-regular:"headings" !default;
 $font-heading-filename-bold:"headings.bold" !default;
@@ -34,7 +40,14 @@ $font-heading-variable-name:"heading" !default;
 $font-heading-class-name:"h" !default;
 
 $font-paragraph-name:"paragraph" !default;
-$font-paragraph-family:$font-paragraph-name, "HK Grotesk Pro", "Garamond", "Baskerville", "Times", "Times New Roman", serif !default;
+$font-paragraph-family:
+  $font-paragraph-name,
+  "HK Grotesk Pro",
+  "Garamond",
+  "Baskerville",
+  "Times",
+  "Times New Roman",
+  serif !default;
 $font-paragraph-weight:normal !default;
 $font-paragraph-filename-regular:"paragraph" !default;
 $font-paragraph-filename-bold:"paragraph.bold" !default;
@@ -54,7 +67,7 @@ $font-default-icon-family:"icons" !default; //Font Family
 
 $font-monospace-class-name:"m" !default;
 
-@mixin _font-smoothing($value:light) {
+@mixin -font-smoothing($value:light) {
   @if $value == dark {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -74,11 +87,11 @@ $font-monospace-class-name:"m" !default;
     font-weight: $weight;
     src:url("/#{$woff}.woff2") format("woff2"),
       url("/#{$woff}.woff") format("woff");
-    @include _font-smoothing(dark);
+    @include -font-smoothing(dark);
   }
 }
 
-@mixin _font-default-classes {
+@mixin -font-default-classes {
   .#{$font-class-prefix}#{$font-heading-class-name} {
     font-family: var(--font-#{$font-heading-variable-name});
   }
@@ -97,7 +110,9 @@ $font-monospace-class-name:"m" !default;
   }
 }
 
-@mixin _font-icon(
+/* stylelint-disable declaration-no-important, font-weight-notation
+ -- this comes from outside */
+@mixin -font-icon(
   $name:$font-iconglyphs-name,
   $filename:$font-iconglyphs-filename,
   $data-prefix:$font-iconglyphs-data-prefix,
@@ -139,6 +154,7 @@ $font-monospace-class-name:"m" !default;
     vertical-align: middle;
   }
 }
+/* stylelint-enable declaration-no-important, font-weight-notation */
 
 @mixin external-imports {
   @include import-font($font-paragraph-name, $font-paragraph-filename-regular, normal, normal);
@@ -155,6 +171,6 @@ $font-monospace-class-name:"m" !default;
 }
 
 @mixin main() {
-  @include _font-default-classes;
-  @include _font-icon;
+  @include -font-default-classes;
+  @include -font-icon;
 }

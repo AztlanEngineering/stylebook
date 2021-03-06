@@ -47,7 +47,8 @@ $text-alignment-right-class-name:"#{$text-alignment-prefix}r" !default;
 $text-alignment-center-class-name:"#{$text-alignment-prefix}c" !default;
 $text-alignment-justify-class-name:"#{$text-alignment-prefix}j" !default;
 
-@mixin _text-helper-classes {
+@mixin -text-helper-classes {
+  /* stylelint-disable font-weight-notation -- TODO temporary */
   .nt {
     font-style: normal;
     font-weight: normal;
@@ -60,6 +61,7 @@ $text-alignment-justify-class-name:"#{$text-alignment-prefix}j" !default;
   .tb {
     font-weight: bold;
   }
+  /* stylelint-enable font-weight-notation */
 
   .ti {
     font-style: italic;
@@ -101,7 +103,7 @@ $text-alignment-justify-class-name:"#{$text-alignment-prefix}j" !default;
   }
 }
 
-@mixin _text-alignment-classes {
+@mixin -text-alignment-classes {
   .#{$text-alignment-left-class-name} {
     text-align: left;
   }
@@ -136,6 +138,6 @@ $text-alignment-justify-class-name:"#{$text-alignment-prefix}j" !default;
 }
 
 @mixin main {
-  @include _text-helper-classes;
-  @include _text-alignment-classes;
+  @include -text-helper-classes;
+  @include -text-alignment-classes;
 }

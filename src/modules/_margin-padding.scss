@@ -36,7 +36,7 @@ $margin-padding-unit:"rem" !default;
 
 $sizes-list:0,.12,.25,.5,1,2,3,4,5,6,8,10 !default;
 
-@mixin _setters_normal_sizes() {
+@mixin -setters-normal-sizes() {
   @each $size, $multiple in $sizes-list {
     @each $prefix in $prefixes-setters-block-sizes {
       @if $size < 1 {
@@ -52,7 +52,7 @@ $sizes-list:0,.12,.25,.5,1,2,3,4,5,6,8,10 !default;
   }
 }
 
-@mixin _setters_normal_sizes_media(
+@mixin -setters-normal-sizes-media(
   $to:false,
   $from:globals.$sm-md,
   $responsive-prefix:"md"
@@ -74,7 +74,7 @@ $sizes-list:0,.12,.25,.5,1,2,3,4,5,6,8,10 !default;
   }
 }
 
-@mixin _factory_getters_rectangle($prefix,$var-name,$property) {
+@mixin -factory-getters-rectangle($prefix,$var-name,$property) {
   $rect:(
     top:t,
     bottom:b,
@@ -104,7 +104,7 @@ $sizes-list:0,.12,.25,.5,1,2,3,4,5,6,8,10 !default;
   }
 }
 
-@mixin _removers() {
+@mixin -removers() {
   .nm {
     margin: 0;
   }
@@ -115,13 +115,13 @@ $sizes-list:0,.12,.25,.5,1,2,3,4,5,6,8,10 !default;
 }
 
 @mixin main () {
-  @include _setters_normal_sizes;
-  @include _setters_normal_sizes_media;
+  @include -setters-normal-sizes;
+  @include -setters-normal-sizes-media;
   @each $variable-name in $prefixes-setters-block-sizes {
-    @include _factory_getters_rectangle($prefix-getter-margin, $variable-name, "margin");
-    @include _factory_getters_rectangle($prefix-getter-padding, $variable-name, "padding");
+    @include -factory-getters-rectangle($prefix-getter-margin, $variable-name, "margin");
+    @include -factory-getters-rectangle($prefix-getter-padding, $variable-name, "padding");
   }
 
-  @include _removers;
+  @include -removers;
 }
 
