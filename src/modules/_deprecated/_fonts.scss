@@ -111,7 +111,8 @@ $font-monospace-class-name:"m" !default;
 }
 
 /* stylelint-disable declaration-no-important, font-weight-notation
- -- this comes from outside */
+ -- This code comes from outside, and icon-fonts should be prioritary/special
+ */
 @mixin -font-icon(
   $name:$font-iconglyphs-name,
   $filename:$font-iconglyphs-filename,
@@ -163,7 +164,7 @@ $font-monospace-class-name:"m" !default;
   @include import-font($font-heading-name, $font-heading-filename-bold, bold, normal);
 }
 
-@mixin define-root-variables() {
+@mixin root-definitions() {
   --font-#{$font-heading-variable-name}: #{$font-heading-family};
   --font-#{$font-paragraph-variable-name}: #{$font-paragraph-family};
   --font-default: #{$font-default-family};

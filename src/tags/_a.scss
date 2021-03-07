@@ -1,0 +1,30 @@
+$color:var(--link);
+$text-decoration:none !default;
+$hover-color:var(--light-link);
+$hover-text-decoration:none !default;
+$focus-color:var(--dark-link);
+$focus-text-decoration:none;
+$visited-color:var(--dark-link);
+$visited-text-decoration:none;
+
+@mixin main {
+  a {
+    color: $color;
+    text-decoration: $text-decoration;
+  }
+
+  a:hover {
+    color: $hover-color;
+    text-decoration: $hover-text-decoration;
+  }
+
+  a:focus {
+    color: $focus-color;
+    text-decoration: $hover-text-decoration;
+  }
+
+  a:visited {
+    color: $visited-color;
+    text-decoration: $visited-text-decoration;
+  }
+}

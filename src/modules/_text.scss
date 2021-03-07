@@ -4,24 +4,12 @@
  * Classes generated
  * -----------------
  *
- * nt : no style
- * tl : lighter
- * tb : bold
- * ti : italic
- * tn : underline
- * tos : oldstyle number
- * tu : uppercase
- * tw : lowercase
- * ts : text with stroke, gets X
- * tsm : small caps (only on otf files featuring it)
- * to : most open type features for content (ligatures))
- *
  * uc : center
  * ul : left
  * ur : right
  * uj : justified
- * uc-xs : center for xs or less,
- * ul-md : center for md or less,
+ * xs-uc : center for xs or less,
+ * md-uc : center for md or less,
  *
  * Default Exports
  * --------------
@@ -32,76 +20,11 @@
 
 @use "../mixins";
 
-$text-stroke-width:2px !default;
-
-$text-open-type-onum:1 !default;
-$text-open-type-kern:1 !default;
-$text-open-type-liga:1 !default;
-$text-open-type-dlig:1 !default;
-$text-open-type-hlig:1 !default;
-$text-open-type-clig:1 !default;
-
 $text-alignment-prefix:"u" !default;
 $text-alignment-left-class-name:"#{$text-alignment-prefix}l" !default;
 $text-alignment-right-class-name:"#{$text-alignment-prefix}r" !default;
 $text-alignment-center-class-name:"#{$text-alignment-prefix}c" !default;
 $text-alignment-justify-class-name:"#{$text-alignment-prefix}j" !default;
-
-@mixin -text-helper-classes {
-  /* stylelint-disable font-weight-notation -- TODO temporary */
-  .nt {
-    font-style: normal;
-    font-weight: normal;
-  }
-
-  .tl {
-    font-weight: lighter;
-  }
-
-  .tb {
-    font-weight: bold;
-  }
-  /* stylelint-enable font-weight-notation */
-
-  .ti {
-    font-style: italic;
-  }
-
-  .tu {
-    text-transform: uppercase;
-  }
-
-  .tn {
-    text-decoration: underline;
-  }
-
-  .tw {
-    text-transform: lowercase;
-  }
-
-  .tsm {
-    font-feature-settings: "smcp" 1;
-  }
-
-  .ts {
-    color: transparent;
-    -webkit-text-stroke: $text-stroke-width var(--x, var(--paragraph));
-    text-stroke: $text-stroke-width var(--x, var(--paragraph));
-  }
-
-  .to {
-    font-feature-settings:"onum" $text-open-type-onum,
-      "kern" $text-open-type-kern,
-      "liga" $text-open-type-liga,
-      "dlig" $text-open-type-dlig,
-      "hlig" $text-open-type-hlig,
-      "clig" $text-open-type-clig;
-  }
-
-  .tos {
-    font-feature-settings: "onum" 1,;
-  }
-}
 
 @mixin -text-alignment-classes {
   .#{$text-alignment-left-class-name} {
@@ -138,6 +61,5 @@ $text-alignment-justify-class-name:"#{$text-alignment-prefix}j" !default;
 }
 
 @mixin main {
-  @include -text-helper-classes;
   @include -text-alignment-classes;
 }

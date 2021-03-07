@@ -1,0 +1,8 @@
+@use "../globals";
+
+@mixin define-theme-vars($array, $prefix:globals.$theme-prefix) {
+  @each $variable, $value in $array {
+    --#{$prefix}-#{$variable}: #{$value};
+  }
+}
+

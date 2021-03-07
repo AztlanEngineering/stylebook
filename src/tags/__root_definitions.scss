@@ -1,0 +1,57 @@
+@use "../mixins";
+@use "../globals";
+
+$border-radius-general:.25em !default;
+$border-radius-var-name:theme-border-radius !default;
+$border-radius-top-left:var(--#{$border-radius-var-name}) !default;
+$border-radius-top-right:var(--#{$border-radius-var-name}) !default;
+$border-radius-bottom-left:var(--#{$border-radius-var-name}) !default;
+$border-radius-bottom-right:var(--#{$border-radius-var-name}) !default;
+$border-radius-left:
+  $border-radius-top-left
+  0
+  0
+  $border-radius-bottom-left !default;
+$border-radius-right:
+  0
+  $border-radius-top-right
+  $border-radius-bottom-right
+  0 !default;
+$border-radius-top:
+  $border-radius-top-left
+  $border-radius-top-right
+  0
+  0 !default;
+$border-radius-bottom:
+  0
+  0
+  $border-radius-bottom-right
+  $border-radius-bottom-left !default;
+$border-radius-all:
+  $border-radius-top-left
+  $border-radius-top-right
+  $border-radius-bottom-right
+  $border-radius-bottom-left !default;
+
+$theme-variables:(
+  "default-line-height":1.35em,
+  "heading-line-height":1.22em,
+  "default-margin-bottom":1em,
+  "heading-margin-bottom":1em,
+  "default-nested-offset":1em,
+  "heading-font-size-multiplier":1,
+  "default-font-family":var(--font-paragraph),
+  "heading-font-family":var(--font-heading),
+  "default-color":var(--paragraph),
+  "base-font-size":#{globals.$base-font-size},
+  "#{$border-radius-var-name}-left": #{$border-radius-left},
+  "#{$border-radius-var-name}-right": #{$border-radius-right},
+  "#{$border-radius-var-name}-top": #{$border-radius-top},
+  "#{$border-radius-var-name}-bottom": #{$border-radius-bottom},
+  "#{$border-radius-var-name}-all": #{$border-radius-all},
+  "#{$border-radius-var-name}": #{$border-radius-general},
+) !default;
+
+@mixin root-definitions {
+  @include mixins.define-theme-vars($theme-variables);
+}

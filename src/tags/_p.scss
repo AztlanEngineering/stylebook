@@ -1,0 +1,24 @@
+@use "../globals";
+
+$color:var(--paragraph, inherit);
+$line-height:var(--#{globals.$theme-prefix}-default-line-height) !default;
+$margin-bottom:var(--#{globals.$theme-prefix}-default-margin-bottom) !default;
+
+/*
+
+TODO Orphans ? Widows ?
+
+*/
+
+@mixin main {
+  p {
+    color: $color;
+    line-height: $line-height;
+
+    &:not(:last-child) {
+      margin-bottom: $margin-bottom;
+    }
+  }
+}
+
+

@@ -1,0 +1,41 @@
+@use "../globals";
+
+$color:var(--paragraph, inherit);
+$class-name-compact:globals.$class-name-compact !default;
+$margin-bottom:var(--#{globals.$theme-prefix}-default-margin-bottom) !default;
+$nested-offset:var(--#{globals.$theme-prefix}-default-nested-offset) !default;
+$list-style-ul:none !default;
+$list-style-ol:decimal !default;
+
+@mixin main {
+  ul,
+  ol {
+    color: $color;
+    &:not(#{$class-name-compact}) {
+      li {
+        &:not(:last-child) {
+          margin-bottom: $margin-bottom;
+        }
+      }
+    }
+
+    &.#{$class-name-compact} {
+      margin-bottom: $margin-bottom;
+    }
+
+    ul,
+    ol {
+      margin-left: $nested-offset;
+    }
+  }
+
+  ul {
+    list-style: $list-style-ul;
+    padding-left: unset;
+  }
+
+  ol {
+    list-style: $list-style-ol;
+  }
+}
+

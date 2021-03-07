@@ -25,7 +25,7 @@
       @content;
     }
   }
-  @each $name, $breakpoint in globals.$responsiveSizes {
+  @each $name, $breakpoint in globals.$responsive-sizes {
     @include media($to:$breakpoint) {
       @if $suffix {
         .#{$baseName}-#{$name} {

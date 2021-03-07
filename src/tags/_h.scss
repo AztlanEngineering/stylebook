@@ -1,0 +1,94 @@
+@use "../globals";
+
+$class-name-small:globals.$class-name-small !default;
+
+$h1:var(--s6) !default;
+$h2:var(--s4) !default;
+$h3:var(--s3) !default;
+$h4:var(--s2) !default;
+$h5:var(--s1) !default;
+
+$size-multiplier:var(--#{globals.$theme-prefix}-heading-font-size-multiplier, 1) !default;
+$font-weight:var(--#{globals.$theme-prefix}-heading-font-weight) !default;
+$line-height:var(--#{globals.$theme-prefix}-heading-line-height) !default;
+$margin-bottom:var(--#{globals.$theme-prefix}-heading-margin-bottom) !default;
+$font-family:var(--#{globals.$theme-prefix}-heading-font-family) !default;
+
+$chapter-separation:3em;
+
+@mixin main {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5 {
+    color: var(--heading); //TODO
+    font-family: $font-family; //TODO
+    font-weight: $font-weight;
+    line-height: $line-height;
+    margin-bottom: $margin-bottom;
+    padding: 0;
+    word-break: break-word;
+
+    p + & {
+      margin-top: $chapter-separation;
+    }
+  }
+
+  h1,
+  .h1 {
+    font-size: calc(#{$size-multiplier} * #{$h1} * 1em);
+    min-height: 1rem;
+  }
+
+  h2,
+  .h2,
+  h1.#{$class-name-small},
+  .h1.#{$class-name-small} {
+    font-size: calc(#{$size-multiplier} * #{$h2} * 1em);
+  }
+
+  h3,
+  .h3,
+  h2.#{$class-name-small},
+  .h2.#{$class-name-small} {
+    font-size: calc(#{$size-multiplier} * #{$h3} * 1em);
+  }
+
+  h4,
+  .h4,
+  h3.#{$class-name-small},
+  .h3.#{$class-name-small} {
+    font-size: calc(#{$size-multiplier} * #{$h4} * 1em);
+  }
+
+  h5,
+  .h5,
+  h4.#{$class-name-small},
+  .h4.#{$class-name-small} {
+    font-size: calc(#{$size-multiplier} * #{$h5} * 1em);
+  }
+
+  h1:first-child,
+  h2:first-child,
+  h3:first-child,
+  h4:first-child,
+  h5:first-child {
+    margin-top: 0;
+  }
+
+  h1:last-child,
+  h2:last-child,
+  h3:last-child,
+  h4:last-child,
+  h5:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@include main;

@@ -1,44 +1,16 @@
-@use "globals";
 @use "mixins";
-@use "modules/animation";
-@use "modules/base";
-@use "modules/border-radius";
-@use "modules/display";
-@use "modules/em-sizes";
-@use "modules/fonts";
-@use "modules/helpers";
-@use "modules/margin-padding";
-@use "modules/text";
-@use "temporary_to_sort";
+@use "tags/_all" as tags;
+@use "modules/_all" as modules;
 
-@include fonts.external-imports; //Initially we import the dependencies
-@include mixins.reset; //Initially we reset the html
+@include mixins.reset;
+
+//@include fonts.external-imports; //Initially we import the dependencies
 
 :root {
-  @include fonts.define-root-variables;
-  @include em-sizes.define-root-variables;
-  @include border-radius.define-root-variables;
+  @include tags.root-definitions;
+  @include modules.root-definitions;
 }
 
-@include base.main; // Base comes first
-@include display.main;
-@include fonts.main;
-@include em-sizes.main;
-@include margin-padding.main;
-@include text.main;
-@include helpers.main; //Helpers and custom styles come last
-@include animation.main;
-
-@include temporary_to_sort.html-body;
-@include temporary_to_sort.extras;
-
-//
-//
-
-/*
-$red:#DF1F00;
-
-html {
-  color: $red;
-} */
+@include tags.main;
+@include modules.main;
 

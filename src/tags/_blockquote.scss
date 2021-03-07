@@ -1,0 +1,51 @@
+$margin-bottom:1.6em !default;
+$font-size:2rem !default;
+$before-char:"“" !default;
+$before-size:10em !default;
+$before-color:var(--y, #20fc8f) !default;
+$before-opacity:.45 !default;
+$before-top:-5rem !default;
+$before-left:-2.5rem !default;
+$left-padding:.5em !default;
+$font-style:italic !default;
+$author-before-char:"—" !default;
+$author-margin-right:4em !default;
+$author-before-margin-right:1em !default;
+$author-font-size:1.2em !default;
+
+@mixin main {
+  blockquote {
+    font-size: $font-size;
+    font-style: $font-style;
+    //$before-char:'“';
+    padding-left: $left-padding;
+    position: relative;
+
+    + :not(figcaption) {
+      margin-top: $margin-bottom;
+    }
+
+    + figcaption {
+      font-size: $author-font-size;
+      margin-top: 1em;
+      padding-right: $author-margin-right;
+
+      &::before {
+        content: $author-before-char;
+        margin-right: $author-before-margin-right;
+      }
+    }
+
+    &::before {
+      color: $before-color;
+      content: $before-char;
+      font-size: $before-size;
+      font-style: normal;
+      left: $before-left;
+      opacity: $before-opacity;
+      position: absolute;
+      top: $before-top;
+      z-index: -1;
+    }
+  }
+}

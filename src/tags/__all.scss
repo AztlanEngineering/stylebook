@@ -1,0 +1,17 @@
+@forward "./_root_definitions";
+
+@use "./html_body";
+@use "./a";
+@use "./blockquote";
+@use "./h";
+@use "./p";
+@use "./pre";
+
+@mixin main {
+  @include html_body.main;
+  @include a.main;
+  @include blockquote.main;
+  @include h.main;
+  @include p.main;
+  @include pre.main;
+}

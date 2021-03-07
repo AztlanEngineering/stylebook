@@ -1,42 +1,6 @@
 @use "globals";
 @use "mixins";
 
-@mixin html-body {
-
-
-  $page-background:var(--light-background);
-  $pageOverflowX:hidden !default;
-  $hidden-class:"h" !default;
-  $text-line-height-paragraph:globals.$default-line-height;
-
-  /* --- Main  --- */
-  html,
-  body {
-    height: 100%;
-  }
-
-
-  html {
-    @include mixins.media($from:globals.$sm-md) {
-      //font-size: var(--emsize-md);
-    }
-    font-size: var(--emsize);
-  }
-
-
-  body {
-    background: $page-background;
-    color: var(--paragraph);
-    font-family: var(--font-paragraph);
-    //font-size: $fontSize;
-    line-height: globals.$default-line-height;
-
-    //min-width: $pageMinWidth;
-    margin: 0;
-    overflow-x: $pageOverflowX;
-    padding: 0;
-  }
-}
 
 @mixin extras {
   //Basic style (Button, Label, Card)

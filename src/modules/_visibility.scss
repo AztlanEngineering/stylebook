@@ -16,14 +16,8 @@
 
 @use "../mixins";
 
-$pointer-class:"pointer" !default;
 $hidden-class:"h" !default;
 
-@mixin -helper-classes {
-  .#{$pointer-class} {
-    cursor: pointer;
-  }
-}
 @mixin -hidden {
   /* --- Hidden --- */
   /* stylelint-disable declaration-no-important -- exceptionally,
@@ -33,15 +27,6 @@ $hidden-class:"h" !default;
   }
 }
 
-/*
-@mixin fit {
-  img.fit {
-    object-fit: cover;
-  }
-} */
-
-
 @mixin main {
-  @include -helper-classes;
   @include -hidden;
 }

@@ -1,9 +1,12 @@
-$default-line-height:1.35 !default;
+$theme-prefix:theme;
+$class-name-small:small;
+$class-name-compact:compact;
+$base-font-size:16px;
 
 $xs-sm:600px !default;
 $sm-md:900px !default;
 $md-lg:1369px !default;
-$responsiveSizes:(
+$responsive-sizes:(
   "xs":$xs-sm,
   "sm":$sm-md,
   "md":$md-lg,

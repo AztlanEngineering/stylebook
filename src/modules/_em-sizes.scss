@@ -26,8 +26,6 @@
 @use "../mixins";
 @use "../globals";
 
-$base-size-medium:18px !default;
-$base-size:16px !default;
 $size-multiplier:1.2 !default;
 
 $size-multipliers-map:(
@@ -69,9 +67,7 @@ $class-prefix:"s" !default;
 }
 
 
-@mixin define-root-variables() {
-  --emsize-md: #{$base-size-medium};
-  --emsize: #{$base-size};
+@mixin root-definitions() {
   @each $size, $multiple in $size-multipliers-map {
     --s#{$size}: #{$multiple};
   }

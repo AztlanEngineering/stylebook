@@ -1,0 +1,18 @@
+@use "./em-sizes";
+@use "./margin-padding";
+@use "./text";
+@use "./visibility";
+
+
+@mixin root-definitions {
+  @include em-sizes.root-definitions;
+}
+
+@mixin main {
+  @include em-sizes.main;
+  @include margin-padding.main;
+
+  @include text.main;
+
+  @include visibility.main;
+}

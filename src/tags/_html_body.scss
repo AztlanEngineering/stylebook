@@ -1,0 +1,39 @@
+@use "../globals";
+
+$page-background:var(--light-background);
+$line-height:var(--#{globals.$theme-prefix}-default-line-height) !default;
+$font-family:var(--#{globals.$theme-prefix}-default-font-family) !default;
+$default-color:var(--#{globals.$theme-prefix}-default-color) !default;
+$page-overflow-x:hidden;
+
+
+@mixin main {
+  /* --- Main  --- */
+  html,
+  body {
+    height: 100%;
+  }
+
+
+  html {
+    /*
+    @include mixins.media($from:globals.$sm-md) {
+      //font-size: var(--emsize-md);
+    } */
+    font-size: var(--emsize);
+  }
+
+  body {
+    background: $page-background;
+    color: $default-color;
+    font-family: $font-family;
+    //font-size: $fontSize;
+    line-height: $line-height;
+
+    //min-width: $pageMinWidth;
+    margin: 0;
+    overflow-x: $page-overflow-x;
+    padding: 0;
+  }
+}
+
