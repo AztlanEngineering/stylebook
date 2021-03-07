@@ -656,12 +656,12 @@ template {
   --theme-heading-font-family: var(--font-heading);
   --theme-default-color: var(--paragraph);
   --theme-base-font-size: 16px;
-  --theme-theme-border-radius-left: var(--theme-border-radius) 0 0 var(--theme-border-radius);
-  --theme-theme-border-radius-right: 0 var(--theme-border-radius) var(--theme-border-radius) 0;
-  --theme-theme-border-radius-top: var(--theme-border-radius) var(--theme-border-radius) 0 0;
-  --theme-theme-border-radius-bottom: 0 0 var(--theme-border-radius) var(--theme-border-radius);
-  --theme-theme-border-radius-all: var(--theme-border-radius) var(--theme-border-radius) var(--theme-border-radius) var(--theme-border-radius);
-  --theme-theme-border-radius: 0.25em;
+  --theme-border-radius-left: var(--border-radius) 0 0 var(--border-radius);
+  --theme-border-radius-right: 0 var(--border-radius) var(--border-radius) 0;
+  --theme-border-radius-top: var(--border-radius) var(--border-radius) 0 0;
+  --theme-border-radius-bottom: 0 0 var(--border-radius) var(--border-radius);
+  --theme-border-radius-all: var(--border-radius) var(--border-radius) var(--border-radius) var(--border-radius);
+  --theme-border-radius: 0.25em;
   --s-3: 0.5787037037;
   --s-2: 0.6944444444;
   --s-1: 0.8333333333;
