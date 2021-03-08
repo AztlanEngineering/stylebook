@@ -20,7 +20,7 @@ $page-overflow-x:hidden;
     @include mixins.media($from:globals.$sm-md) {
       //font-size: var(--emsize-md);
     } */
-    font-size: var(--emsize);
+    font-size: var(--theme-base-font-size);
   }
 
   body {

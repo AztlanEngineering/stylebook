@@ -1,5 +1,5 @@
-@use "../mixins";
-@use "../globals";
+@use "mixins";
+@use "globals";
 
 $border-radius-general:.25em !default;
 $border-radius-var-name:border-radius !default;

@@ -2,6 +2,12 @@
 /* stylelint-disable scss/media-feature-value-dollar-variable -- We need to have a 1px delta */
 /* TODO remove dependency and remove code */
 /* stylelint-disable -- copied and pasted reset */
+/* stylelint-disable declaration-no-important, font-weight-notation
+ -- This code comes from outside, and icon-fonts should be prioritary/special
+ */
+/* stylelint-enable declaration-no-important, font-weight-notation */
+/* stylelint-disable order/order -- vars required for mixin */
+/* stylelint-enable order/order */
 h1,
 h2,
 h3,
@@ -645,7 +651,93 @@ template {
   display: none;
 }
 
+@font-face {
+  font-display: fallback;
+  font-family: "paragraph";
+  font-style: "normal";
+  font-weight: "normal";
+  src: url("/paragraph.woff2") format("woff2"), url("/paragraph.woff") format("woff");
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always;
+}
+@font-face {
+  font-display: fallback;
+  font-family: "paragraph";
+  font-style: "normal";
+  font-weight: "bold";
+  src: url("/paragraph.bold.woff2") format("woff2"), url("/paragraph.bold.woff") format("woff");
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always;
+}
+@font-face {
+  font-display: fallback;
+  font-family: "heading";
+  font-style: "normal";
+  font-weight: "normal";
+  src: url("/heading.woff2") format("woff2"), url("/heading.woff") format("woff");
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always;
+}
+@font-face {
+  font-display: fallback;
+  font-family: "heading";
+  font-style: "normal";
+  font-weight: "bold";
+  src: url("/heading.bold.woff2") format("woff2"), url("/heading.bold.woff") format("woff");
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always;
+}
+@font-face {
+  font-family: "icons";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/icons.woff2") format("woff2"), url("/icons.woff") format("woff");
+}
+.fi-icons {
+  --font-icons: icons;
+}
+
+@font-face {
+  font-family: "cairo";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/cairo.woff2") format("woff2"), url("/cairo.woff") format("woff");
+}
+.fi-cairo {
+  --font-icons: cairo;
+}
+
+/* --- 360 Rotate -- */
+[data-icon]::before {
+  margin-right: 0.35em;
+}
+
+[data-icon]::before,
+[data-icon-left]::before,
+[data-icon-right]::after,
+.icon,
+i.icon {
+  content: attr(data-icon);
+  font-family: var(--font-icons, "icons") !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal !important;
+  font-variant: normal !important;
+  font-weight: normal !important;
+  line-height: 1;
+  speak: none;
+  text-transform: none !important;
+  vertical-align: middle;
+}
+
 :root {
+  --font-paragraph: paragraph, hk grotesk pro, helvetica neue, helvetica;
+  --font-heading: heading, hk grotesk pro, helvetica neue, helvetica;
+  --font-default: var(--font-paragraph);
   --theme-default-line-height: 1.35em;
   --theme-heading-line-height: 1.22em;
   --theme-default-margin-bottom: 1em;
@@ -674,6 +766,18 @@ template {
   --s6: 2.985984;
 }
 
+.f-paragraph {
+  font-family: var(--font-paragraph);
+}
+
+.f-heading {
+  font-family: var(--font-heading);
+}
+
+.f-default {
+  font-family: var(--font-default);
+}
+
 /* --- Main  --- */
 html,
 body {
@@ -685,7 +789,7 @@ html {
   @include mixins.media($from:globals.$sm-md) {
     //font-size: var(--emsize-md);
   } */
-  font-size: var(--emsize);
+  font-size: var(--theme-base-font-size);
 }
 
 body {

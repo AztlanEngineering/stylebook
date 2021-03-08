@@ -1,16 +1,43 @@
 @use "mixins";
 @use "tags/_all" as tags;
 @use "modules/_all" as modules;
+@use "theme";
 
-@include mixins.reset;
+
+$import-font-map:(
+  "paragraph":(
+    "normal-normal":"paragraph",
+    "bold-normal":"paragraph.bold",
+  ),
+  "heading":(
+    "normal-normal":"heading",
+    "bold-normal":"heading.bold",
+  ),
+  "icons":(
+    "default":"icons",
+    "cairo":"cairo",
+  )
+);
+
+$root-font-map:(
+  "paragraph":"hk grotesk pro, helvetica neue, helvetica", // font-family
+  "heading":"hk grotesk pro, helvetica neue, helvetica", // font-family
+  "default":"paragraph", // name of another font in the map
+);
 
 //@include fonts.external-imports; //Initially we import the dependencies
 
+@include mixins.font-import-from-map($import-font-map, $define-icon-getters:true);
+@include mixins.reset;
+
 :root {
-  @include tags.root-definitions;
+  @include mixins.font-root-definitions-from-map($root-font-map);
+  @include theme.root-definitions;
   @include modules.root-definitions;
 }
 
+@include mixins.font-class-definitions-from-map($root-font-map);
 @include tags.main;
 @include modules.main;
+
 
