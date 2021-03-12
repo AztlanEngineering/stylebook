@@ -1,7 +1,7 @@
 {
   "name": "@aztlan/stylebook",
   "author": "Aztlan Engineering",
-  "version": "0.0.2-beta.2",
+  "version": "0.0.2-beta.3",
   "description": "",
   "repository": "github:AztlanEngineering/stylebook",
   "main": "dist/main.min.css",
