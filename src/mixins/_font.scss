@@ -139,7 +139,7 @@ $default-icons-margin:.35em !default;
     }
     @else {
       $rest-of-font-family:$font;
-      @if $font-name {
+      @if $font-name != null {
         --#{$font-var-prefix}-#{$variable}: #{$font-name}, #{$rest-of-font-family};
       }
       @else {
