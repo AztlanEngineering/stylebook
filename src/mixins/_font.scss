@@ -130,7 +130,7 @@ $default-icons-margin:.35em !default;
 }
 
 /* stylelint-disable order/order -- vars required for mixin */
-@mixin root-definitions-from-map($map) {
+@mixin root-definitions-from-map($map, $font-name) {
   @each $variable, $font in $map {
     @if $variable == "default" {
       $default-font-var-name:$font;
@@ -139,8 +139,12 @@ $default-icons-margin:.35em !default;
     }
     @else {
       $rest-of-font-family:$font;
-
-      --#{$font-var-prefix}-#{$variable}: #{$variable}, #{$rest-of-font-family};
+      @if $font-name {
+        --#{$font-var-prefix}-#{$variable}: #{$font-name}, #{$rest-of-font-family};
+      }
+      @else {
+        --#{$font-var-prefix}-#{$variable}: #{$variable}, #{$rest-of-font-family};
+      }
     }
   }
 }
