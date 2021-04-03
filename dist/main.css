@@ -744,6 +744,7 @@ template {
   --theme-heading-line-height: 1em;
   --theme-default-margin-vertical: 1em;
   --theme-heading-margin-vertical: 0;
+  --theme-heading-font-weight: 600;
   --theme-default-nested-offset: 1em;
   --theme-heading-font-size-multiplier: 1;
   --theme-default-font-family: var(--font-paragraph);
