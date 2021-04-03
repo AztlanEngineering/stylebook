@@ -11,10 +11,11 @@ $h5:var(--s1) !default;
 $size-multiplier:var(--#{globals.$theme-prefix}-heading-font-size-multiplier, 1) !default;
 $font-weight:var(--#{globals.$theme-prefix}-heading-font-weight) !default;
 $line-height:var(--#{globals.$theme-prefix}-heading-line-height) !default;
-$margin-bottom:var(--#{globals.$theme-prefix}-heading-margin-bottom) !default;
+$heading-margin-vertical:var(--#{globals.$theme-prefix}-heading-margin-vertical) !default;
+$paragraph-margin-vertical:var(--#{globals.$theme-prefix}-default-margin-vertical) !default;
 $font-family:var(--#{globals.$theme-prefix}-heading-font-family) !default;
 
-$chapter-separation:3em;
+$chapter-separation:calc(var(--#{globals.$theme-prefix}-default-margin-vertical) * 3);
 
 @mixin main {
   h1,
@@ -31,12 +32,16 @@ $chapter-separation:3em;
     font-family: $font-family; //TODO
     font-weight: $font-weight;
     line-height: $line-height;
-    margin-bottom: $margin-bottom;
+    margin-bottom: $heading-margin-vertical;
     padding: 0;
     word-break: break-word;
 
     p + & {
       margin-top: $chapter-separation;
+    }
+
+    & + p {
+      margin-top: $paragraph-margin-vertical;
     }
   }
 

@@ -2,7 +2,7 @@
 
 $color:var(--paragraph, inherit);
 $line-height:var(--#{globals.$theme-prefix}-default-line-height) !default;
-$margin-bottom:var(--#{globals.$theme-prefix}-default-margin-bottom) !default;
+$margin-vertical:var(--#{globals.$theme-prefix}-default-margin-vertical) !default;
 
 /*
 
@@ -14,9 +14,10 @@ TODO Orphans ? Widows ?
   p {
     color: $color;
     line-height: $line-height;
+    margin: 0;
 
     &:not(:last-child) {
-      margin-bottom: $margin-bottom;
+      margin-bottom: $margin-vertical;
     }
   }
 }

@@ -35,9 +35,9 @@ $border-radius-all:
 
 $theme-variables:(
   "default-line-height":1.35em,
-  "heading-line-height":1.22em,
-  "default-margin-bottom":1em,
-  "heading-margin-bottom":1em,
+  "heading-line-height":1em,
+  "default-margin-vertical":1em,
+  "heading-margin-vertical":0,
   "default-nested-offset":1em,
   "heading-font-size-multiplier":1,
   "default-font-family":var(--font-paragraph),
