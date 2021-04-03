@@ -138,7 +138,7 @@ $default-icons-margin:.35em !default;
       --#{$font-var-prefix}-default: var(--#{$font-var-prefix}-#{$default-font-var-name});
     }
     @else {
-      @if $add-name != false {
+      @if $add-name != true {
         $font-family:$font;
 
         --#{$font-var-prefix}-#{$variable}: #{$font-family};
