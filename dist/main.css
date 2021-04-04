@@ -188,9 +188,9 @@ TODO Orphans ? Widows ?
  */
 @font-face {
   font-display: fallback;
-  font-family: "paragraph";
-  font-style: "normal";
-  font-weight: "normal";
+  font-family: paragraph;
+  font-style: normal;
+  font-weight: normal;
   src: url("/paragraph.woff2") format("woff2"), url("/paragraph.woff") format("woff");
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -198,9 +198,9 @@ TODO Orphans ? Widows ?
 }
 @font-face {
   font-display: fallback;
-  font-family: "paragraph";
-  font-style: "normal";
-  font-weight: "bold";
+  font-family: paragraph;
+  font-style: normal;
+  font-weight: bold;
   src: url("/paragraph.bold.woff2") format("woff2"), url("/paragraph.bold.woff") format("woff");
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -208,9 +208,9 @@ TODO Orphans ? Widows ?
 }
 @font-face {
   font-display: fallback;
-  font-family: "heading";
-  font-style: "normal";
-  font-weight: "normal";
+  font-family: heading;
+  font-style: normal;
+  font-weight: normal;
   src: url("/heading.woff2") format("woff2"), url("/heading.woff") format("woff");
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -218,9 +218,9 @@ TODO Orphans ? Widows ?
 }
 @font-face {
   font-display: fallback;
-  font-family: "heading";
-  font-style: "normal";
-  font-weight: "bold";
+  font-family: heading;
+  font-style: normal;
+  font-weight: bold;
   src: url("/heading.bold.woff2") format("woff2"), url("/heading.bold.woff") format("woff");
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -737,8 +737,8 @@ template {
 }
 
 :root {
-  --font-paragraph: hk grotesk pro, helvetica neue, helvetica;
-  --font-heading: hk grotesk pro, helvetica neue, helvetica;
+  --font-paragraph: paragraph, hk grotesk pro, helvetica neue, helvetica;
+  --font-heading: heading, hk grotesk pro, helvetica neue, helvetica;
   --font-default: var(--font-paragraph);
   --theme-default-line-height: 1.35em;
   --theme-heading-line-height: 1em;

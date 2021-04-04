@@ -105,11 +105,11 @@ $default-icons-margin:.35em !default;
   @each $variable, $submap in $map {
     @if $variable != "icons" {
       // Start by importing Normal fonts (icons fonts are not prioritary)
-      $font-family:$variable;
+      $font-family:unquote($variable);
       @each $parameters-string, $filename in $submap {
         $parameters:functions.str-split($parameters-string, "-");
-        $font-weight:nth($parameters, 1);
-        $font-style:nth($parameters, 2);
+        $font-weight:unquote(nth($parameters, 1));
+        $font-style:unquote(nth($parameters, 2));
         @include import($font-family, $filename, $font-weight, $font-style);
       }
     }
@@ -119,7 +119,7 @@ $default-icons-margin:.35em !default;
           @include icon-import($filename:$icon-font-filename);
         }
         @else {
-          @include icon-import($icon-font-name, $icon-font-filename);
+          @include icon-import(unquote($icon-font-name), $icon-font-filename);
         }
       }
       @if $define-icon-getters == true {
